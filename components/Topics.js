@@ -8,14 +8,7 @@ import './Topics.css';
 class Topics extends React.PureComponent {
 
   static propTypes = {
-    topics:PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        mainWords: PropTypes.string.isRequired,
-        author: PropTypes.string.isRequired,
-      })
-    ),
+    topics: PropTypes.object.isRequired,
   };
   
   render() {
