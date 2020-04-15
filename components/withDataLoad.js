@@ -25,19 +25,23 @@ let withDataLoad = (fetchConfig,propName) => Component => {
           });
         };
       
-        loadData = async () => {
+        loadData = () => {
       
-          try {
-            let response=await isoFetch(fetchConfig.URL, fetchConfig);
-            if (!response.ok) {
-              throw new Error("fetch error " + response.status);
-            }
-            let data=await response.json();
-            this.fetchSuccess(data);
-          } 
-          catch ( error )  {
-            this.fetchError(error.message);
-          }
+          isoFetch(fetchConfig.URL, fetchConfig)
+              .then( response => {
+                  if (!response.ok) {
+                      throw new Error("fetch error " + response.status);
+                  }
+                  else
+                      return response.json();
+              })
+              .then( data => {
+                  this.fetchSuccess(data);
+              })
+              .catch( error => {
+                  this.fetchError(error.message);
+              })
+          ;
       
         };
       
