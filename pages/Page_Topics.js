@@ -1,13 +1,19 @@
 import React from 'react';
 
-import TopicsRoot from '../components/TopicsRoot';
+import Topics from '../components/Topics';
 
 class Page_Topics extends React.PureComponent {
           
   render() {
 
     return (
-      <TopicsRoot
+      <Topics
+      topics= {
+          [{id:1, title:"Java", mainWords:'Array, Ajax, JSON', author: 'Ivanov Ivan'}, 
+          {id:2, title:"Q&A", mainWords:'Array, Ajax, JSON', author: 'Gobom Pavel'}, 
+          {id:3, title:"HR", mainWords:'Array, Ajax, JSON', author: 'Livan Aleksandr'},
+          {id:4, title:"JavaScript", mainWords:'Array, Ajax, JSON', author: 'Prohorov Prohor'}]
+      }
 
       />
     );
@@ -20,10 +26,10 @@ export default Page_Topics;
     
 /*
 Topics
-        topics= {
-            [{id:101, title:"Иванов И.И.", mainWords:'200', autor: 'z'}, 
-            {id:105, title:"Сидоров С.С.", mainWords:'250', autor: 'z'}, 
-            {id:110, title:"Петров П.П.", mainWords:'180', autor: 'z'},
-            {id:120, title:"Григорьев Г.Г.", mainWords:'220', autor: 'z'}]
-        }
+      topics= {
+          [{id:1, title:"Java", mainWords:'Array, Ajax, JSON', author: 'Ivanov Ivan'}, 
+          {id:2, title:"Q&A", mainWords:'Array, Ajax, JSON', author: 'Gobom Pavel'}, 
+          {id:3, title:"HR", mainWords:'Array, Ajax, JSON', author: 'Livan Aleksandr'},
+          {id:4, title:"JavaScript", mainWords:'Array, Ajax, JSON', author: 'Prohorov Prohor'}]
+      }
 */    

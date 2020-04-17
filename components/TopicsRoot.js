@@ -5,15 +5,17 @@ import { withDataLoad } from './withDataLoad';
 
 class TopicsRoot extends React.PureComponent {
 
+  ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
+  topics; // элемент массива - {id:101, title:"JavaScript", mainWords:'Array, JSON, Ajax', autor: 'Loktev'};
+  updatePassword;
+  stringName = 'NAKVAS_PROJECT_CONFERENCE';
+
  fetchConfig={
-    URL: "https://fe.it-academy.by/AjaxStringStorage2.php",
-    type: 'POST', dataType: 'json',
-    data: {
-      f: 'LOCKGET', n: 'NAKVAS_PROJECT_NU_POGODI',
-      p: Math.random()
-    },
+    URL: this.ajaxHandlerScript, type: 'POST',
     headers: {
-        "Accept": "application/json",
+      f: 'READ', n: 'NAKVAS_PROJECT_CONFERENCE',
+      p: Math.random(),
+      "Accept": "application/json",
     },
   };
 

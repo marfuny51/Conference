@@ -6,8 +6,8 @@ class Page_Main extends React.PureComponent {
 
     return (
       <div>
-        <h1>Ежегодная конференция для начинающих IT-специалистов</h1>
-        16 мая 2020 года, 9:00 г. Минск, пр-к Независимотси, 20
+        <h1>Annual conference for beginning IT professionals</h1>
+        May 16, 2020, 9:00, Minsk, Nezavisimosti Ave., 20
       </div>
     );
     

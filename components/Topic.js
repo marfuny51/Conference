@@ -18,7 +18,7 @@ class Topic extends React.PureComponent {
   render() {
     
     return (
-      <tr>
+      <tr key={this.props.info.id}>
         <td><NavLink to={"/topic/"+this.props.info.title}>{this.props.info.title}</NavLink></td>
         <td>{this.props.info.mainWords}</td>
         <td>{this.props.info.author}</td>
