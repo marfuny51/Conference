@@ -1,20 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {voteEvents} from './events';
 
 import Topic from './Topic';
+import AddSpeaker from './AddSpeaker'
 
 import './Topics.css';
 
 class Topics extends React.PureComponent {
 
   static propTypes = {
-    topics: PropTypes.object.isRequired,
+    topics:PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        mainWords: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+      })
+    ),
+  };
+
+  state = {
+    topics: this.props.topics,
+  }
+
+  componentDidMount = () => {
+    voteEvents.addListener('EAddTopic',this.topicSave);
+  };
+
+  componentWillUnmount = () => {
+    voteEvents.removeListener('EAddTopic',this.topicSave);
+  };
+
+  topicSave = (id, name, topic) => {
+    let topics = [...this.state.topics];
+      let newObject = {id:id, title: topic, mainWords: topic, author: name,}; 
+      topics = [...topics, newObject];
+    this.setState({ topics: topics});
   };
   
   render() {
 
-    var topicsCode=this.props.topics.map( topic =>
-      <Topic key={topic.id} info={topic}  />
+    var topicsCode=this.state.topics.map( topic =>
+      <Topic key={topic.id} topic={topic}  />
     );
 
     return (

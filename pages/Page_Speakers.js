@@ -9,10 +9,10 @@ class Page_Speakers extends React.PureComponent {
     return (
       <Speakers
       speakers= {
-        [{name:"Ivanov Ivan", phone:'123231', position: 'Developer', topic: 'Java'}, 
-        {name:"Gobom Pavel", phone:'5661651', position: 'Q&A', topic: 'Q&A'}, 
-        {name:"Livan Aleksandr", phone:'658451', position: 'HR', topic: 'HR'},
-        {name:"Prohorov Prohor", phone:'98542', position: 'JavaScript', topic: 'JavaScript'}]
+        [{id:1, name:"Ivanov Ivan", phone:'123231', position: 'Developer', topic: 'Java'}, 
+        {id:2, name:"Gobom Pavel", phone:'5661651', position: 'Q&A', topic: 'Q&A'}, 
+        {id:3, name:"Livan Aleksandr", phone:'658451', position: 'HR', topic: 'HR'},
+        {id:4, name:"Prohorov Prohor", phone:'98542', position: 'JavaScript', topic: 'JavaScript'}]
     }
       />
     );
