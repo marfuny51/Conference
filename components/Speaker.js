@@ -21,12 +21,12 @@ class Speaker extends React.PureComponent {
 
     return (
     <tr>
-        <td><NavLink to={"/speaker/"+this.props.speaker.name}>{this.props.speaker.name}</NavLink></td>
+        <td><NavLink to={"/speaker/"+this.props.speaker.id}>{this.props.speaker.name}</NavLink></td>
         <td>{this.props.speaker.phone}</td>
         <td>{this.props.speaker.position}</td>
         <td>{this.props.speaker.topic}</td>
-        <td><input type="button" value="Edit" disabled = {(this.props.newID===1)?false:true} /></td>
-        <td><input type="button" value="Delete" disabled = {(this.props.mode===1)?false:true}/></td>
+        <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?true:false} /></td>
+        <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?true:false}/></td>
     </tr>
     );
 

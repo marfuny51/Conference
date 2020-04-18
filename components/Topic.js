@@ -13,6 +13,7 @@ class Topic extends React.PureComponent {
       title: PropTypes.string.isRequired,
       mainWords: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
+      info: PropTypes.string.isRequired,
     }),
   };
 
@@ -24,6 +25,8 @@ class Topic extends React.PureComponent {
         <td>{this.props.topic.mainWords}</td>
         <td>{this.props.topic.author}</td>
         <td><input type="button" value="Read more..."/></td>
+        <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?true:false} /></td>
+        <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?true:false}/></td>
       </tr>
     );
 

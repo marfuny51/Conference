@@ -68,7 +68,9 @@ class Speakers extends React.PureComponent {
   render() {
     let speakers = [...this.state.speakers];
     var speakersCode=speakers.map( speaker =>
-      <Speaker key={speaker.id} speaker={speaker}  />
+      <Speaker key={speaker.id} 
+      mode={this.state.mode}
+      speaker={speaker}  />
     );
 
     return (
@@ -89,7 +91,7 @@ class Speakers extends React.PureComponent {
           {speakersCode}
           </tbody>
         </table>
-        <input type="button" value="I want to be a speaker" onClick = {this.addSpeaker} disabled = {(this.state.mode===2)?true:false}/>
+        <input type="button" value="Add a new speaker" onClick = {this.addSpeaker} disabled = {(this.state.mode===2)?true:false}/>
 
         {
         (this.state.mode===2)&&
