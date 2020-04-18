@@ -7,14 +7,7 @@ class Page_Speakers extends React.PureComponent {
   render() {
 
     return (
-      <Speakers
-      speakers= {
-        [{id:1, name:"Ivanov Ivan", phone:'123231', position: 'Developer', topic: 'Java'}, 
-        {id:2, name:"Gobom Pavel", phone:'5661651', position: 'Q&A', topic: 'Q&A'}, 
-        {id:3, name:"Livan Aleksandr", phone:'658451', position: 'HR', topic: 'HR'},
-        {id:4, name:"Prohorov Prohor", phone:'98542', position: 'JavaScript', topic: 'JavaScript'}]
-    }
-      />
+      <Speakers />
     );
     
   }
@@ -22,3 +15,13 @@ class Page_Speakers extends React.PureComponent {
 }
     
 export default Page_Speakers;
+    
+/*
+Topics
+      topics= {
+          [{id:1, title:"Java", mainWords:'Array, Ajax, JSON', author: 'Ivanov Ivan'}, 
+          {id:2, title:"Q&A", mainWords:'Array, Ajax, JSON', author: 'Gobom Pavel'}, 
+          {id:3, title:"HR", mainWords:'Array, Ajax, JSON', author: 'Livan Aleksandr'},
+          {id:4, title:"JavaScript", mainWords:'Array, Ajax, JSON', author: 'Prohorov Prohor'}]
+      }
+*/    

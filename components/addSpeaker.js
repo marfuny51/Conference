@@ -14,13 +14,13 @@ class AddSpeaker extends React.PureComponent {
         position: PropTypes.string.isRequired,
         topic: PropTypes.string.isRequired,
     }),
-    topic:PropTypes.shape({
+    /*topic:PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       mainWords: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       info: PropTypes.string.isRequired,
-    }),
+    }),*/
   };
 
   state = {
@@ -54,7 +54,7 @@ class AddSpeaker extends React.PureComponent {
     else {
         this.setState({errorName:'', valideName: true});
     }
-    if (!this.state.newPhone.match(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)) {
+    if (!this.state.newPhone.match(/[0-9]+$/)) {
         this.setState({errorPhone:'Phone should be the same form: +375(**)***-**-**', validePhone: false}); 
     }
     else {
@@ -127,7 +127,7 @@ class AddSpeaker extends React.PureComponent {
     else {
         this.setState({errorName:'', valideName: true});
     }
-    if (!this.state.newPhone.match(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)) {
+    if (!this.state.newPhone.match(/[0-9]+$/)) {
         this.setState({errorPhone:'Phone should be the same form: +375(**)***-**-**', validePhone: false}); 
     }
     else {

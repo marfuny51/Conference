@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {voteEvents} from './events';
+import isoFetch from 'isomorphic-fetch';
 import Speaker from './Speaker';
 import AddSpeaker from './AddSpeaker'
 
@@ -8,24 +10,14 @@ import './Speakers.css';
 
 class Speakers extends React.PureComponent {
 
-  static propTypes = {
-    speakers:PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number.isRequired,
-          name: PropTypes.string.isRequired,
-          phone: PropTypes.string.isRequired,
-          position: PropTypes.string.isRequired,
-          topic: PropTypes.string.isRequired,
-        })
-      ),
-  };
-
   state = {
-    speakers: this.props.speakers,
+    dataReady: false,
+    speakers: [],
     mode: null, //0 -view, 1- edit, 2 -add
   }
 
   componentDidMount = () => {
+    this.loadData();
     voteEvents.addListener('ESave',this.speakerSave);
     voteEvents.addListener('ECancel',this.speakerCancel);
   };
@@ -35,26 +27,118 @@ class Speakers extends React.PureComponent {
     voteEvents.removeListener('ECancel',this.speakerCancel);
   };
 
-  speakerSave = (id, name, phone, position, topic) => {
-    let speakers = [...this.state.speakers];
-    if (this.state.mode===1) {
-      speakers.forEach( (c, i) => {
-        if (c.id == id) {
-          let speaker={...c};
-          speaker.name = name;
-          speaker.phone = phone;
-          speaker.position = position;
-          speaker.topic = topic;
-          speakers[i]=speaker;
-        }
-      })
-    }; 
-    if (this.state.mode===2) {
-        let newObject = {id:speakers.length+2, name: name, phone: phone, position: position, topic: topic}; 
-        speakers = [...speakers, newObject];
+  loadData = () => {
+    let ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+    let sp = new URLSearchParams();
+    sp.append('f', 'READ');
+    sp.append('n', 'NAKVAS_PROJECT_CONFERENCE');
+
+    isoFetch(ajaxHandlerScript, {
+        method: 'post',
+        headers: {
+            "Accept": "application/json",
+        },
+        bode: sp,
+    })
+        .then( response => { // response - HTTP-ответ
+            if (!response.ok)
+                throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
+            else
+                return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+        })
+        .then( data => {
+            this.fetchSuccess(data);
+            console.log(data); // передаём полезные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
+        })
+        .catch( error => {
+            this.fetchError(error.message);
+        });
+
+  }; 
+  
+  fetchSuccess = (loadedData) => {
+    if (loadedData.error != undefined)
+    alert(loadedData.error);
+  else {
+    this.setState({
+      dataReady:true,
+      speakers:[],
+    });
+    if (loadedData.result != "") { // либо строка пустая - сообщений нет
+      // либо в строке - JSON-представление массива сообщений
+      this.setState({
+        dataReady:true,
+        speakers:JSON.parse(loadedData.result),
+      });
     }
-    this.setState({ mode:0, speakers: speakers});
+  }  
+
   };
+
+
+  fetchError = (errorMessage) => {
+    //console.error(showStr);
+  };
+
+  speakerSave = (id, name, phone, position, topic) => {
+    let ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+    let updatePassword=Math.random();
+    let sp1 = new URLSearchParams();
+    sp1.append('f', 'LOCKGET');
+    sp1.append('n', 'NAKVAS_PROJECT_CONFERENCE');
+    sp1.append('p', updatePassword);
+    
+    isoFetch(ajaxHandlerScript, {
+      method: 'post',
+      headers: {
+          "Accept": "application/json",
+      },
+      bode: sp1,
+    })
+      .then( response => { // response - HTTP-ответ
+          if (!response.ok)
+              throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
+          else
+              return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+      })
+      .then( data => {
+        console.log(data); // передаём полезные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
+      })
+      .catch( error => {
+          console.log(error.message);
+      });
+      
+    let sp2 = new URLSearchParams();
+    sp2.append('f', 'UPDATE');
+    sp2.append('n', 'NAKVAS_PROJECT_CONFERENCE');
+    sp2.append('p', updatePassword);
+    sp2.append('v', JSON.stringify(this.state.speakers));
+    let speakers = JSON.parse(data);
+    
+    speakers.push({speakers: {id: id, name: name, phone: phone, position: position, topic: topic}});
+    this.setState({speakers:speakers});
+
+    isoFetch(ajaxHandlerScript, {
+      method: 'post',
+      headers: {
+          "Accept": "application/json",
+      },
+      bode: sp2,
+    })
+      .then( response => { // response - HTTP-ответ
+          if (!response.ok)
+              throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
+          else
+              return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+      })
+      .then( data => {
+        console.log(data); // передаём полезные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
+      })
+      .catch( error => {
+          this.fetchError(error.message);
+      });
+    }
+  
 
   speakerCancel = () => {
     let speakers = [...this.state.speakers];
@@ -65,8 +149,13 @@ class Speakers extends React.PureComponent {
     this.setState({mode:2})
   }
   
+  
   render() {
+    /*if ( !this.state.dataReady )
+      return <div>загрузка данных...</div>;*/
+
     let speakers = [...this.state.speakers];
+    
     var speakersCode=speakers.map( speaker =>
       <Speaker key={speaker.id} 
       mode={this.state.mode}
@@ -95,9 +184,9 @@ class Speakers extends React.PureComponent {
 
         {
         (this.state.mode===2)&&
-        <AddSpeaker key={this.state.speakers.length+2}
+        <AddSpeaker key={1}
         mode={this.state.mode}
-        id={this.state.speakers.length+2}
+        id={1}
         name=''
         phone=''
         position=''
