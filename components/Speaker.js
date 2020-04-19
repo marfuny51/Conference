@@ -16,6 +16,14 @@ class Speaker extends React.PureComponent {
           topic: PropTypes.string.isRequired,
         })
   };
+
+  deleteSpeaker = () => {
+    voteEvents.emit('EDelete', this.props.speaker.id);
+  }
+
+  editSpeaker = () => {
+    voteEvents.emit('EEdit', this.props.speaker.id);
+  }
   
   render() {
 
@@ -25,8 +33,8 @@ class Speaker extends React.PureComponent {
         <td>{this.props.speaker.phone}</td>
         <td>{this.props.speaker.position}</td>
         <td>{this.props.speaker.topic}</td>
-        <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?false:true} /></td>
-        <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?false:true}/></td>
+        <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?true:false} onClick={this.editSpeaker}/></td>
+        <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?true:false} onClick={this.deleteSpeaker}/></td>
     </tr>
     );
 

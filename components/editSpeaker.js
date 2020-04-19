@@ -4,7 +4,7 @@ import {voteEvents} from './events';
 
 //import './editadd.css';
 
-class AddSpeaker extends React.PureComponent {
+class EditSpeaker extends React.PureComponent {
 
   static propTypes = {
     speaker:PropTypes.shape({
@@ -14,16 +14,10 @@ class AddSpeaker extends React.PureComponent {
         position: PropTypes.string.isRequired,
         topic: PropTypes.string.isRequired,
     }),
-    topic:PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      mainWords: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      info: PropTypes.string.isRequired,
-    }),
   };
 
   state = {
+    speaker: this.props.speaker,
     newName: '',
     newPhone: '',
     newPosition: '',
@@ -192,13 +186,13 @@ class AddSpeaker extends React.PureComponent {
         
         <div>
           {
-          (this.props.mode===2)&&
-          <div key = {this.props.id}>
+          (this.props.mode===1)&&
+          <div key = {this.state.id}>
             <span>Please, enter info</span><br/>
-            <span>Name: </span><input type='text' defaultValue={this.props.name} onChange={this.setNewName}/><span>{this.state.errorName}</span><br/>
-            <span>Phone: </span><input type='text'defaultValue={this.props.phone} onChange={this.setNewPhone}/><span>{this.state.errorPhone}</span><br/>
-            <span>Position: </span><input type='text'defaultValue={this.props.position} onChange={this.setNewPosition}/><span>{this.state.errorPosition}</span><br/>
-            <span>Topic: </span><input type='text'defaultValue={this.props.topic} onChange={this.setNewTopic}/><span>{this.state.errorTopic}</span><br/>
+            <span>Name: </span><input type='text' defaultValue={this.state.name} onChange={this.setNewName}/><span>{this.state.errorName}</span><br/>
+            <span>Phone: </span><input type='text'defaultValue={this.state.phone} onChange={this.setNewPhone}/><span>{this.state.errorPhone}</span><br/>
+            <span>Position: </span><input type='text'defaultValue={this.state.position} onChange={this.setNewPosition}/><span>{this.state.errorPosition}</span><br/>
+            <span>Topic: </span><input type='text'defaultValue={this.state.topic} onChange={this.setNewTopic}/><span>{this.state.errorTopic}</span><br/>
             <input type="button" value="Save" onClick={this.save} disabled = {(this.state.valideName&&this.state.validePhone&&this.state.validePosition&&this.state.valideTopic)?false:true}/>
             <input type="button" value="Cancel" onClick={this.cancel}/>
             </div>
@@ -228,4 +222,4 @@ class AddSpeaker extends React.PureComponent {
 
 }
 
-export default AddSpeaker;
+export default EditSpeaker;

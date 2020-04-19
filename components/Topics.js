@@ -31,7 +31,7 @@ class Topics extends React.PureComponent {
     voteEvents.addListener('ECancel',this.topicCancel);
   };
 
-  componentWillUnmount = () => {
+  componentWillMount = () => {
     voteEvents.removeListener('ESave',this.topicSave);
     voteEvents.removeListener('ECancel',this.topicCancel);
   };
