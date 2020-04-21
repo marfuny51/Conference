@@ -14,13 +14,13 @@ class AddSpeaker extends React.PureComponent {
         position: PropTypes.string.isRequired,
         topic: PropTypes.string.isRequired,
     }),
-    topic:PropTypes.shape({
+    /*topic:PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       mainWords: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       info: PropTypes.string.isRequired,
-    }),
+    }),*/
   };
 
   state = {
