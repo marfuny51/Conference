@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 import {voteEvents} from './events';
 import isoFetch from 'isomorphic-fetch';
 import Speaker from './Speaker';
-import AddSpeaker from './addSpeaker'
-import EditSpeaker from './editSpeaker'
+import AddSpeaker from './addSpeaker';
+import EditSpeaker from './editSpeaker';
 
 import './Speakers.css';
 
@@ -19,7 +18,7 @@ class Speakers extends React.PureComponent {
     mode: null, //0 -view, 1- edit, 2 -add
   }
 
-  speakersArray;EditSave
+  speakersArray;
 
   componentDidMount = () => {
     this.loadData();
@@ -42,7 +41,7 @@ class Speakers extends React.PureComponent {
     let ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
     let sp = new URLSearchParams();
     sp.append('f', 'READ');
-    sp.append('n', 'PROBA_PERA3');
+    sp.append('n', 'PROBA_PERA5');
 
     isoFetch(ajaxHandlerScript, {
         method: 'post',
@@ -61,6 +60,8 @@ class Speakers extends React.PureComponent {
             if (data.result === "") {
               this.speakersArray = {};
               this.speakersArray.speakers = [];
+              this.speakersArray.topics = [];
+              this.speakersArray.members = [];
             }
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.speakers);
@@ -81,7 +82,7 @@ class Speakers extends React.PureComponent {
     var updatePassword=Math.random();
     let sp1 = new URLSearchParams();
     sp1.append('f', 'LOCKGET');
-    sp1.append('n', 'PROBA_PERA3');
+    sp1.append('n', 'PROBA_PERA5');
     sp1.append('p', updatePassword);
     
     isoFetch(ajaxHandlerScript, {
@@ -127,7 +128,7 @@ class Speakers extends React.PureComponent {
 
     let sp2 = new URLSearchParams();
     sp2.append('f', 'UPDATE');
-    sp2.append('n', 'PROBA_PERA3');
+    sp2.append('n', 'PROBA_PERA5');
     sp2.append('p', updatePassword);
     sp2.append('v', JSON.stringify(this.speakersArray));
 
@@ -159,7 +160,7 @@ class Speakers extends React.PureComponent {
       var updatePassword=Math.random();
       let sp3 = new URLSearchParams();
       sp3.append('f', 'LOCKGET');
-      sp3.append('n', 'PROBA_PERA3');
+      sp3.append('n', 'PROBA_PERA5');
       sp3.append('p', updatePassword);
       
       isoFetch(ajaxHandlerScript, {
@@ -191,7 +192,7 @@ class Speakers extends React.PureComponent {
   
       let sp2 = new URLSearchParams();
       sp2.append('f', 'UPDATE');
-      sp2.append('n', 'PROBA_PERA3');
+      sp2.append('n', 'PROBA_PERA5');
       sp2.append('p', updatePassword);
       sp2.append('v', JSON.stringify(this.speakersArray));
   
