@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {voteEvents} from './events';
 import isoFetch from 'isomorphic-fetch';
 import Topic from './Topic';
-import AddSpeaker from './addSpeaker';
+import AddTopic from './addTopic';
 import EditSpeaker from './editSpeaker';
 
 import './Topics.css';
@@ -272,7 +272,7 @@ class Topics extends React.PureComponent {
         <input type="button" value="Add a new topic" onClick = {this.addTopic} disabled = {(this.state.mode===4)?true:false}/>
         {
         (this.state.mode===4)&&
-          <AddSpeaker key={idNum}
+          <AddTopic key={idNum}
           mode={this.state.mode}
           id={idNum}
           title=''
