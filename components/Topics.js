@@ -10,6 +10,11 @@ import './Topics.css';
 
 class Topics extends React.PureComponent {
 
+  /*constructor(props) {
+    super(props);
+    this.mounted = false;
+  }*/
+
   state = {
     dataReady: false,
     topics: [],
@@ -22,6 +27,7 @@ class Topics extends React.PureComponent {
 
   componentDidMount = () => {
     this.loadData();
+    //this.mounted = true;
     voteEvents.addListener('ESave',this.topicSave);
     voteEvents.addListener('ECancel',this.topicCancel);
     voteEvents.addListener('EDelete',this.topicDelete);
@@ -29,7 +35,8 @@ class Topics extends React.PureComponent {
     voteEvents.addListener('EditSave',this.topicSave);     
   };
 
-  componentWillMount = () => {
+  componentWillUnmount = () => {
+    //this.mounted = false;
     voteEvents.removeListener('ESave',this.topicSave);
     voteEvents.removeListener('ECancel',this.topicCancel);
     voteEvents.removeListener('EDelete',this.topicDelete);
@@ -41,7 +48,7 @@ class Topics extends React.PureComponent {
     let ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
     let sp = new URLSearchParams();
     sp.append('f', 'READ');
-    sp.append('n', 'PROBA_PERA5');
+    sp.append('n', 'PROBA_PERA7');
 
     isoFetch(ajaxHandlerScript, {
         method: 'post',
@@ -65,7 +72,9 @@ class Topics extends React.PureComponent {
             }
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.topics);
-            this.setState({ dataReady:true, speakers:this.speakersArray.topics});
+            
+              this.setState({ dataReady:true, topics:this.speakersArray.topics});
+            
         })
         .catch( error => {
             this.fetchError(error.message);
@@ -82,7 +91,7 @@ class Topics extends React.PureComponent {
     var updatePassword=Math.random();
     let sp1 = new URLSearchParams();
     sp1.append('f', 'LOCKGET');
-    sp1.append('n', 'PROBA_PERA5');
+    sp1.append('n', 'PROBA_PERA7');
     sp1.append('p', updatePassword);
     
     isoFetch(ajaxHandlerScript, {
@@ -128,7 +137,7 @@ class Topics extends React.PureComponent {
 
     let sp2 = new URLSearchParams();
     sp2.append('f', 'UPDATE');
-    sp2.append('n', 'PROBA_PERA5');
+    sp2.append('n', 'PROBA_PERA7');
     sp2.append('p', updatePassword);
     sp2.append('v', JSON.stringify(this.speakersArray));
 
@@ -148,7 +157,9 @@ class Topics extends React.PureComponent {
       .then( (data) => {
         console.log(data);
         this.setState({mode:5});
-        this.loadData();
+        
+          this.loadData();
+        
       })
       .catch( error => {
           this.fetchError(error.message);
@@ -160,7 +171,7 @@ class Topics extends React.PureComponent {
       var updatePassword=Math.random();
       let sp3 = new URLSearchParams();
       sp3.append('f', 'LOCKGET');
-      sp3.append('n', 'PROBA_PERA5');
+      sp3.append('n', 'PROBA_PERA7');
       sp3.append('p', updatePassword);
       
       isoFetch(ajaxHandlerScript, {
@@ -187,12 +198,12 @@ class Topics extends React.PureComponent {
             console.log(error.message);
         });
       
-      this.speakersArray.topics = this.speakersArray.topics.filter(topic => topic.id !== this.state.deleteCode);
+      this.speakersArray.topics = this.speakersArray.topics.filter(topic => topic.id !== id);
       console.log(this.speakersArray);
   
       let sp2 = new URLSearchParams();
       sp2.append('f', 'UPDATE');
-      sp2.append('n', 'PROBA_PERA5');
+      sp2.append('n', 'PROBA_PERA7');
       sp2.append('p', updatePassword);
       sp2.append('v', JSON.stringify(this.speakersArray));
   
@@ -210,7 +221,9 @@ class Topics extends React.PureComponent {
                 return response.json(); 
         })
         .then( (data) => {
-          this.loadData();
+          
+            this.loadData();
+          
         })
         .catch( error => {
             this.fetchError(error.message);

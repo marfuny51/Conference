@@ -9,6 +9,11 @@ import EditSpeaker from './editSpeaker';
 import './Speakers.css';
 
 class Speakers extends React.PureComponent {
+  
+  /*constructor(props) {
+    super(props);
+    this.mounted = false;
+  }*/
 
   state = {
     dataReady: false,
@@ -22,17 +27,19 @@ class Speakers extends React.PureComponent {
 
   componentDidMount = () => {
     this.loadData();
+    //this.mounted = true;
     voteEvents.addListener('ESave',this.speakerSave);
     voteEvents.addListener('ECancel',this.speakerCancel);
-    voteEvents.addListener('EDelete',this.speakerDelete);
+    voteEvents.addListener('EDelete',this.delete);
     voteEvents.addListener('EEdit',this.editSpeaker);
     voteEvents.addListener('EditSave',this.speakerSave);     
   };
 
-  componentWillMount = () => {
+  componentWillUnmount = () => {
+    //this.mounted = false;
     voteEvents.removeListener('ESave',this.speakerSave);
     voteEvents.removeListener('ECancel',this.speakerCancel);
-    voteEvents.removeListener('EDelete',this.speakerDelete);
+    voteEvents.removeListener('EDelete',this.delete);
     voteEvents.removeListener('EEdit',this.editSpeaker);
     voteEvents.removeListener('EditSave',this.speakerSave);
   };
@@ -41,7 +48,7 @@ class Speakers extends React.PureComponent {
     let ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
     let sp = new URLSearchParams();
     sp.append('f', 'READ');
-    sp.append('n', 'PROBA_PERA5');
+    sp.append('n', 'PROBA_PERA7');
 
     isoFetch(ajaxHandlerScript, {
         method: 'post',
@@ -65,7 +72,9 @@ class Speakers extends React.PureComponent {
             }
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.speakers);
-            this.setState({ dataReady:true, speakers:this.speakersArray.speakers});
+            
+              this.setState({ dataReady:true, speakers:this.speakersArray.speakers});
+            
         })
         .catch( error => {
             this.fetchError(error.message);
@@ -82,7 +91,7 @@ class Speakers extends React.PureComponent {
     var updatePassword=Math.random();
     let sp1 = new URLSearchParams();
     sp1.append('f', 'LOCKGET');
-    sp1.append('n', 'PROBA_PERA5');
+    sp1.append('n', 'PROBA_PERA7');
     sp1.append('p', updatePassword);
     
     isoFetch(ajaxHandlerScript, {
@@ -99,11 +108,10 @@ class Speakers extends React.PureComponent {
               return response.json(); 
       })
       .then( data => {
-          if (data.result === "") {
-            this.speakersArray = {};
-            this.speakersArray.speakers = [];
-          }
-          else this.speakersArray.speakers = JSON.parse(data.result.speakers);
+        if (data.result.speakers === undefined||data.result.speakers==='') {
+          this.speakersArray.speakers =[];
+        }
+        else this.speakersArray.speakers = JSON.parse(data.result.speakers);
       })
       .catch( error => {
           console.log(error.message);
@@ -128,7 +136,7 @@ class Speakers extends React.PureComponent {
 
     let sp2 = new URLSearchParams();
     sp2.append('f', 'UPDATE');
-    sp2.append('n', 'PROBA_PERA5');
+    sp2.append('n', 'PROBA_PERA7');
     sp2.append('p', updatePassword);
     sp2.append('v', JSON.stringify(this.speakersArray));
 
@@ -147,8 +155,8 @@ class Speakers extends React.PureComponent {
       })
       .then( (data) => {
         console.log(data);
-        this.setState({mode:0});
         this.loadData();
+        this.setState({mode:0});        
       })
       .catch( error => {
           this.fetchError(error.message);
@@ -160,7 +168,7 @@ class Speakers extends React.PureComponent {
       var updatePassword=Math.random();
       let sp3 = new URLSearchParams();
       sp3.append('f', 'LOCKGET');
-      sp3.append('n', 'PROBA_PERA5');
+      sp3.append('n', 'PROBA_PERA7');
       sp3.append('p', updatePassword);
       
       isoFetch(ajaxHandlerScript, {
@@ -177,22 +185,21 @@ class Speakers extends React.PureComponent {
                 return response.json(); 
         })
         .then( data => {
-            if (data.result === "") {
-              this.speakersArray = {};
-              this.speakersArray.speakers = [];
+            if (data.result.speakers === undefined||data.result.speakers==='') {
+              this.speakersArray.speakers =[];
             }
-            else this.speakersArray = JSON.parse(data.result);
+            else this.speakersArray.speakers = JSON.parse(data.result.speakers);
         })
         .catch( error => {
             console.log(error.message);
         });
       
-      this.speakersArray.speakers = this.speakersArray.speakers.filter(speaker => speaker.id !== this.state.deleteCode);
+      this.speakersArray.speakers = this.speakersArray.speakers.filter(speaker => speaker.id !== id);
       console.log(this.speakersArray);
   
       let sp2 = new URLSearchParams();
       sp2.append('f', 'UPDATE');
-      sp2.append('n', 'PROBA_PERA5');
+      sp2.append('n', 'PROBA_PERA7');
       sp2.append('p', updatePassword);
       sp2.append('v', JSON.stringify(this.speakersArray));
   
@@ -210,7 +217,8 @@ class Speakers extends React.PureComponent {
                 return response.json(); 
         })
         .then( (data) => {
-          this.loadData();
+            console.log(data);
+            this.loadData();
         })
         .catch( error => {
             this.fetchError(error.message);
@@ -227,9 +235,9 @@ class Speakers extends React.PureComponent {
     this.setState({mode:2})
   }
 
-  speakerDelete = (id) => {
+  /*speakerDelete = (id) => {
     this.setState( {deleteCode:id}, this.delete);
-  }
+  }*/
 
   editSpeaker = (id) => {
     this.setState( {editCode:id, mode:1})

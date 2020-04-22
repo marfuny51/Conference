@@ -44,13 +44,13 @@ class AddTopic extends React.PureComponent {
     else {
       this.setState({errorTitle:'', valideTitle: true});
     }
-    if (!this.state.newMainWords.match(/^[A-Za-z0-9]{20,}/)) {
+    if (!this.state.newMainWords.match(/^[A-Za-z0-9]{3,}/)) {
       this.setState({errorMainWords:'Key words should includes more then 20 letters!', valideMainWords: false}); 
     }
     else {
       this.setState({errorMainWords:'', valideMainWords: true});
     } 
-    if (!this.state.newInfo.match(/^[A-Za-z0-9]{30,}/)) {
+    if (!this.state.newInfo.match(/^[A-Za-z0-9]{3,}/)) {
       this.setState({errorInfo:'Info should includes more then 30 letters!', valideInfo: false}); 
     }
     else {
@@ -87,13 +87,13 @@ class AddTopic extends React.PureComponent {
     else {
       this.setState({errorTitle:'', valideTitle: true});
     } 
-    if (!this.state.newMainWords.match(/^[A-Za-z0-9]{20,}/)) {
+    if (!this.state.newMainWords.match(/^[A-Za-z0-9]{3,}/)) {
       this.setState({errorMainWords:'Key words should includes more then 20 letters!', valideMainWords: false}); 
     }
     else {
       this.setState({errorMainWords:'', valideMainWords: true});
     } 
-    if (!this.state.newInfo.match(/^[A-Za-z0-9]{30,}/)) {
+    if (!this.state.newInfo.match(/^[A-Za-z0-9]{3,}/)) {
       this.setState({errorInfo:'Info should includes more then 30 letters!', valideInfo: false}); 
     }
     else {

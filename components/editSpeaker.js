@@ -175,14 +175,13 @@ class EditSpeaker extends React.PureComponent {
 
   save = () => {
     this.state.changeProduct = false;
-    if (this.props.mode ===1) {
       let name=this.state.newName;
       let phone=this.state.newPhone;
       let position=this.state.newPosition;
       let topic=this.state.newTopic;
       console.log(name, phone, position, topic);
       voteEvents.emit('EditSave', this.props.id, name, phone, position, topic);
-    }
+    
     /*if (this.props.mode ===4) {
       let title=this.state.newTitle;
       let mainWords=this.state.newMainWords;
