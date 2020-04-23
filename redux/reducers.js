@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
 
-import pagesReducer from "./pagesReducer";
+import buttonsReducer from "./buttonsReducer";
 
 let combinedReducer=combineReducers({
-    info: pagesReducer, 
-  
+    info: buttonsReducer,
 });
 
 export default combinedReducer;
