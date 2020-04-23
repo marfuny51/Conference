@@ -32,7 +32,7 @@ class Topic extends React.PureComponent {
         <td><NavLink to={"/topic/"+this.props.topic.title}>{this.props.topic.title}</NavLink></td>
         <td>{this.props.topic.mainWords}</td>
         <td>{this.props.topic.author}</td>
-        <td><input type="button" value="Read more..."/></td>
+        <td><input type="button" value="Read more..." className='Read'/></td>
         <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?true:false} onClick={this.editTopic}/></td>
         <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?true:false} onClick={this.deleteTopic}/></td>
       </tr>

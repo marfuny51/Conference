@@ -267,10 +267,9 @@ class Topics extends React.PureComponent {
     var editCode = topics2.find( topic => topic.id === this.state.editCode); 
 
     return (
-      <div>
-        <div>Topics</div>
-        <table>
-        <thead>
+      <div className='Table'>
+        <table className='TableTopic'>
+        <thead className='TableHead'>
               <tr>
                   <th>Title</th>
                   <th>Key words</th>
@@ -280,7 +279,7 @@ class Topics extends React.PureComponent {
                   <th>Delete</th>
               </tr>
           </thead>
-          <tbody>
+          <tbody className='TableBody'>
           {topicsCode}
           </tbody>
         </table>
