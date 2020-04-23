@@ -1,8 +1,18 @@
 .PageLink {
-    color: black;
-    margin-right: 10px;
+    color: white;
+    margin-right: 2em;
+    font-family: 'Baloo Bhaina 2', cursive;
+    font-size: 1.7em;
+    text-decoration: none;
 }
 
 .ActivePageLink {
+    color: #00D970;
+    font-family: 'Baloo Bhaina 2', cursive;
     font-weight: bold;
+    text-decoration: none;
+}
+
+.Links {
+    text-align: center;
 }

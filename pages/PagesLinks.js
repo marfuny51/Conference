@@ -9,7 +9,7 @@ class PagesLinks extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className='Links'>
         <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">Conference</NavLink>
         <NavLink to="/topics" className="PageLink" activeClassName="ActivePageLink">Topics</NavLink>
         <NavLink to="/speakers" className="PageLink" activeClassName="ActivePageLink">Speakers</NavLink>

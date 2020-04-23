@@ -1,4 +1,26 @@
 .Main {
-    /*background-image: url(../images/fon.png);*/
-    background-size: cover;
+    font-family: 'Muli', sans-serif;
+    margin-top: 3em;
+    color: rgba(255, 255, 255, 0.801);
+    text-align: center;
+}
+
+.Main h1 {
+    font-size: 2.5em;
+}
+
+.Main p {
+    font-size: 1.5em;
+}
+
+.Main .Place {
+    margin-top: 3em;
+}
+
+.Main .Net i{
+    margin-right: 1em;
+    color: #00D970;
+}
+.Main .Net i:hover{
+    font-size: 1.2em;
 }
