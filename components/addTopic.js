@@ -106,11 +106,11 @@ class AddTopic extends React.PureComponent {
       let mainWords=this.state.newMainWords;
       let author=this.state.newName;
       let info=this.state.newInfo;
-      voteEvents.emit('ESave', this.props.id, title, mainWords, author, info);
+      voteEvents.emit('ESaveTopic', this.props.id, title, mainWords, author, info);
   }
 
   cancel = () => {
-    voteEvents.emit('ECancel');
+    voteEvents.emit('ECancelTopic');
   }
 
   render() {

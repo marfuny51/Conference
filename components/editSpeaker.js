@@ -21,23 +21,14 @@ class EditSpeaker extends React.PureComponent {
     newPhone: this.props.phone,
     newPosition: this.props.position,
     newTopic: this.props.topic,
-    newTitle: '',
-    newMainWords: '',
-    newInfo: '',
     errorName: '',
     errorPhone: '',
     errorPosition: '',
     errorTopic: '',
-    errorTitle:'',
-    errorMainWords:'',
-    errorInfo:'',
     valideName: true,
     validePhone: true,
     validePosition: true,
     valideTopic: true,
-    valideTitle: true,
-    valideMainWords: true,
-    valideInfo: true,
     changeProduct: false,
   }
 
@@ -103,19 +94,7 @@ class EditSpeaker extends React.PureComponent {
       this.setState({newTopic: this.props.topic, changeProduct: false}, this.errorTopic);
     }  
   }
-
-  setNewTitle = (EO) => {
-    this.setState({newTitle: EO.target.value}, this.error);
-  }
-
-  setNewMainWords = (EO) => {
-    this.setState({newMainWords: EO.target.value}, this.error);
-  }
-
-  setNewInfo = (EO) => {
-    this.setState({newInfo: EO.target.value}, this.error);
-  }
-
+  
   errorName = () => {
     if (!this.state.newName.match(/^[A-Za-z]+$/)) {
         this.setState({errorName:'Name should includes only letters!', valideName: false}); 
@@ -152,43 +131,15 @@ class EditSpeaker extends React.PureComponent {
     }
   }
 
-  /*
-    if (!this.state.newTitle.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorTitle:'Title should includes more then 3 letters!', valideTitle: false}); 
-    }
-    else {
-      this.setState({errorTitle:'', valideTitle: true});
-    } 
-    if (!this.state.newMainWords.match(/^[A-Za-z0-9]{20,}/)) {
-      this.setState({errorMainWords:'Key words should includes more then 20 letters!', valideMainWords: false}); 
-    }
-    else {
-      this.setState({errorMainWords:'', valideMainWords: true});
-    } 
-    if (!this.state.newInfo.match(/^[A-Za-z0-9]{30,}/)) {
-      this.setState({errorInfo:'Info should includes more then 30 letters!', valideInfo: false}); 
-    }
-    else {
-      this.setState({errorInfo:'', valideInfo: true});
-    } 
-  }*/
-
   save = () => {
     this.state.changeProduct = false;
-      let name=this.state.newName;
-      let phone=this.state.newPhone;
-      let position=this.state.newPosition;
-      let topic=this.state.newTopic;
-      console.log(name, phone, position, topic);
-      voteEvents.emit('EditSave', this.props.id, name, phone, position, topic);
+    let name=this.state.newName;
+    let phone=this.state.newPhone;
+    let position=this.state.newPosition;
+    let topic=this.state.newTopic;
+    console.log(name, phone, position, topic);
+    voteEvents.emit('EditSave', this.props.id, name, phone, position, topic);
     
-    /*if (this.props.mode ===4) {
-      let title=this.state.newTitle;
-      let mainWords=this.state.newMainWords;
-      let author=this.state.newName;
-      let info=this.state.newInfo;
-      voteEvents.emit('ESave', this.props.id, title, mainWords, author, info);
-    }*/
   }
 
   cancel = () => {
@@ -198,10 +149,6 @@ class EditSpeaker extends React.PureComponent {
   render() {
     
     return (
-        
-        <div>
-          {
-          (this.props.mode===1)&&
           <div key = {this.props.id}>
             <span>Please, edit info</span><br/>
             <span>Name: </span><input type='text' defaultValue={this.props.name} onChange={this.setNewName}/><span>{this.state.errorName}</span><br/>
@@ -211,26 +158,6 @@ class EditSpeaker extends React.PureComponent {
             <input type="button" value="Save" onClick={this.save} disabled = {(this.state.valideName&&this.state.validePhone&&this.state.validePosition&&this.state.valideTopic)?false:true}/>
             <input type="button" value="Cancel" onClick={this.cancel}/>
             </div>
-          }
-           {
-          (this.props.mode===4)&&
-          <div key = {this.props.id}>
-            <span>Please, edit info</span><br/>
-            <span>Title: </span><input type='text' defaultValue={this.props.title} onChange={this.setNewTitle}/><span>{this.state.errorTitle}</span><br/>
-            <span>Key words: </span><input type='text'defaultValue={this.props.mainWords} onChange={this.setNewMainWords}/><span>{this.state.errorMainWords}</span><br/>
-            <span>Author: </span><input type='text'defaultValue={this.props.author} onChange={this.setNewName}/><span>{this.state.errorName}</span><br/>
-            <span>Info: </span><textarea defaultValue={this.props.info} onChange={this.setNewInfo}/><span>{this.state.errorInfo}</span><br/>
-            <input type="button" value="Save" onClick={this.save} disabled = {(this.state.valideTitle&&this.state.valideName&&this.state.valideMainWords&&this.state.valideInfo)?false:true}/>
-            <input type="button" value="Cancel" onClick={this.cancel}/>
-          </div>
-      }
-
-         
-        
-        </div>
-
-        
- 
     );
 
   }

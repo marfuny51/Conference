@@ -17,6 +17,14 @@ class Topic extends React.PureComponent {
     }),
   };
 
+  deleteTopic = () => {
+    voteEvents.emit('EDeleteTopic', this.props.topic.id);
+  }
+
+  editTopic = () => {
+    voteEvents.emit('EEditTopic', this.props.topic.id);
+  }
+
   render() {
     
     return (
@@ -25,8 +33,8 @@ class Topic extends React.PureComponent {
         <td>{this.props.topic.mainWords}</td>
         <td>{this.props.topic.author}</td>
         <td><input type="button" value="Read more..."/></td>
-        <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?true:false} /></td>
-        <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?true:false}/></td>
+        <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?true:false} onClick={this.editTopic}/></td>
+        <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?true:false} onClick={this.deleteTopic}/></td>
       </tr>
     );
 

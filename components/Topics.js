@@ -4,7 +4,7 @@ import {voteEvents} from './events';
 import isoFetch from 'isomorphic-fetch';
 import Topic from './Topic';
 import AddTopic from './addTopic';
-import EditSpeaker from './editSpeaker';
+import EditTopic from './editTopic';
 
 import './Topics.css';
 
@@ -28,20 +28,20 @@ class Topics extends React.PureComponent {
   componentDidMount = () => {
     this.loadData();
     //this.mounted = true;
-    voteEvents.addListener('ESave',this.topicSave);
-    voteEvents.addListener('ECancel',this.topicCancel);
-    voteEvents.addListener('EDelete',this.topicDelete);
-    voteEvents.addListener('EEdit',this.editTopic);
-    voteEvents.addListener('EditSave',this.topicSave);     
+    voteEvents.addListener('ESaveTopic',this.topicSave);
+    voteEvents.addListener('ECancelTopic',this.topicCancel);
+    voteEvents.addListener('EDeleteTopic',this.delete);
+    voteEvents.addListener('EEditTopic',this.editTopic);
+    voteEvents.addListener('EditSaveTopic',this.topicSave);     
   };
 
   componentWillUnmount = () => {
     //this.mounted = false;
-    voteEvents.removeListener('ESave',this.topicSave);
-    voteEvents.removeListener('ECancel',this.topicCancel);
-    voteEvents.removeListener('EDelete',this.topicDelete);
-    voteEvents.removeListener('EEdit',this.editTopic);
-    voteEvents.removeListener('EditSave',this.topicSave);
+    voteEvents.removeListener('ESaveTopic',this.topicSave);
+    voteEvents.removeListener('ECancelTopic',this.topicCancel);
+    voteEvents.removeListener('EDeleteTopic',this.delete);
+    voteEvents.removeListener('EEditTopic',this.editTopic);
+    voteEvents.removeListener('EditSaveTopic',this.topicSave);
   };
 
   loadData = () => {
@@ -112,6 +112,9 @@ class Topics extends React.PureComponent {
             this.speakersArray = {};
             this.speakersArray.topics = [];
           }
+          if (data.result.topics === undefined||data.result.topics==='') {
+            this.speakersArray.topics =[];
+          }
           else this.speakersArray.topics = JSON.parse(data.result.topics);
       })
       .catch( error => {
@@ -156,10 +159,8 @@ class Topics extends React.PureComponent {
       })
       .then( (data) => {
         console.log(data);
+        this.loadData();
         this.setState({mode:5});
-        
-          this.loadData();
-        
       })
       .catch( error => {
           this.fetchError(error.message);
@@ -192,6 +193,9 @@ class Topics extends React.PureComponent {
               this.speakersArray = {};
               this.speakersArray.topics = [];
             }
+            if (data.result.topics === undefined||data.result.topics==='') {
+              this.speakersArray.topics =[];
+            }
             else this.speakersArray = JSON.parse(data.result);
         })
         .catch( error => {
@@ -221,9 +225,8 @@ class Topics extends React.PureComponent {
                 return response.json(); 
         })
         .then( (data) => {
-          
-            this.loadData();
-          
+          console.log(data);
+          this.loadData();
         })
         .catch( error => {
             this.fetchError(error.message);
@@ -239,13 +242,14 @@ class Topics extends React.PureComponent {
     this.setState({mode:4})
   }
 
-  topicDelete = (id) => {
-    this.setState( {deleteCode:id}, this.delete);
-  }
-
   editTopic = (id) => {
     this.setState( {editCode:id, mode:3})
   }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
   
   render() {
     if ( !this.state.dataReady )
@@ -261,8 +265,6 @@ class Topics extends React.PureComponent {
     );
 
     var editCode = topics2.find( topic => topic.id === this.state.editCode); 
-
-    let idNum = Math.random();
 
     return (
       <div>
@@ -285,9 +287,9 @@ class Topics extends React.PureComponent {
         <input type="button" value="Add a new topic" onClick = {this.addTopic} disabled = {(this.state.mode===4)?true:false}/>
         {
         (this.state.mode===4)&&
-          <AddTopic key={idNum}
+          <AddTopic key={this.getRandomInt(1, 10000)}
           mode={this.state.mode}
-          id={idNum}
+          id={this.getRandomInt(1, 10000)}
           title=''
           mainWords=''
           author=''
@@ -296,7 +298,7 @@ class Topics extends React.PureComponent {
         }
         {
         (this.state.mode===3)&&
-          <EditSpeaker key={editCode.id}
+          <EditTopic key={editCode.id}
           mode={this.state.mode}
           id={editCode.id}
           title= {editCode.title}

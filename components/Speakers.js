@@ -234,13 +234,13 @@ class Speakers extends React.PureComponent {
   addSpeaker = (EO) => {
     this.setState({mode:2})
   }
-
-  /*speakerDelete = (id) => {
-    this.setState( {deleteCode:id}, this.delete);
-  }*/
-
+  
   editSpeaker = (id) => {
     this.setState( {editCode:id, mode:1})
+  }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   
   render() {
@@ -256,8 +256,6 @@ class Speakers extends React.PureComponent {
       speaker={speaker}  />
     );
     var editCode = speakers2.find( speaker => speaker.id === this.state.editCode); 
-
-    let idNum = Math.random();
 
     return (
       <div>
@@ -281,9 +279,9 @@ class Speakers extends React.PureComponent {
 
       {
         (this.state.mode===2)&&
-        <AddSpeaker key={idNum}
+        <AddSpeaker key={this.getRandomInt(1, 10000)}
         mode={this.state.mode}
-        id={idNum}
+        id={this.getRandomInt(1, 10000)}
         name=''
         phone=''
         position=''
