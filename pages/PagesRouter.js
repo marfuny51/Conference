@@ -19,6 +19,7 @@ class PagesRouter extends React.Component {
         <Route path="/" exact component={Page_Main} />
         <Route path="/topics" component={Page_Topics} />
         <Route path="/speakers" component={Page_Speakers} />
+        <Route path="/members" component={Page_Members} />
         
         
       </div>
