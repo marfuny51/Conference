@@ -254,7 +254,7 @@ class Topics extends React.PureComponent {
   }
 
   readMore = (id) => {
-    this.setState( {readId:id, mode:55})
+    this.setState({readId:id, mode:55})
   }
   
   
@@ -268,6 +268,7 @@ class Topics extends React.PureComponent {
     var topicsCode=topics.map( topic =>
       <Topic key={topic.id} 
       mode={this.state.mode}
+      readId={this.state.readId}
       topic={topic}  />
     );
 
