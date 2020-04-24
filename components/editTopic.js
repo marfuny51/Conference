@@ -33,25 +33,25 @@ class EditTopic extends React.PureComponent {
   }
 
   componentDidMount() {
-    if (!this.state.newTitle.match(/^[A-Za-z0-9]{3,}/)) {
-        this.setState({errorTitle:'Title should includes more then 3 letters!', valideTitle: false}); 
+    if (!this.state.newTitle.match(/^.{2,}/)) {
+        this.setState({errorTitle:'Title should includes not less then 2 letters!', valideTitle: false}); 
     }
     else {
         this.setState({errorTitle:'', valideTitle: true});
     } 
-    if (!this.state.newMainWords.match(/^[A-Za-z0-9]{3,}/)) {
-        this.setState({errorMainWords:'Key words should includes more then 20 letters!', valideMainWords: false}); 
+    if (!this.state.newMainWords.match(/^.{10,}/)) {
+        this.setState({errorMainWords:'Key words should includes more then 10 letters!', valideMainWords: false}); 
     }
     else {
         this.setState({errorMainWords:'', valideMainWords: true});
     } 
-    if (!this.state.newAuthor.match(/^[A-Za-z]+$/)) {
+    if (!this.state.newAuthor.match(/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/)) {
       this.setState({errorAuthor:'Name should includes only letters!', valideAuthor: false}); 
     }
     else {
       this.setState({errorAuthor:'', valideAuthor: true});
     }
-    if (!this.state.newInfo.match(/^[A-Za-z0-9]{3,}/)) {
+    if (!this.state.newInfo.match(/^.{30,}/)) {
         this.setState({errorInfo:'Info should includes more then 30 letters!', valideInfo: false}); 
     }
     else {
@@ -96,7 +96,7 @@ class EditTopic extends React.PureComponent {
   }
 
   errorAuthor = () => {
-    if (!this.state.newAuthor.match(/^[A-Za-z]+$/)) {
+    if (!this.state.newAuthor.match(/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/)) {
         this.setState({errorAuthor:'Name should includes only letters!', valideAuthor: false}); 
     }
     else {
@@ -105,8 +105,8 @@ class EditTopic extends React.PureComponent {
   }
 
   errorTitle = () => {
-    if (!this.state.newTitle.match(/^[A-Za-z0-9]{3,}/)) {
-        this.setState({errorTitle:'Title should includes more then 3 letters!', valideTitle: false}); 
+    if (!this.state.newTitle.match(/^.{2,}/)) {
+        this.setState({errorTitle:'Title should includes not less then 2 letters!', valideTitle: false}); 
     }
     else {
         this.setState({errorTitle:'', valideTitle: true});
@@ -114,8 +114,8 @@ class EditTopic extends React.PureComponent {
   }
 
   errorMainWords = () => {
-    if (!this.state.newMainWords.match(/^[A-Za-z0-9]{3,}/)) {
-        this.setState({errorMainWords:'Key words should includes more then 20 letters!', valideMainWords: false}); 
+    if (!this.state.newMainWords.match(/^.{10,}/)) {
+        this.setState({errorMainWords:'Key words should includes more then 10 letters!', valideMainWords: false}); 
     }
     else {
         this.setState({errorMainWords:'', valideMainWords: true});
@@ -123,7 +123,7 @@ class EditTopic extends React.PureComponent {
   }
 
   errorInfo = () => {
-    if (!this.state.newInfo.match(/^[A-Za-z0-9]{3,}/)) {
+    if (!this.state.newInfo.match(/^.{30,}/)) {
         this.setState({errorInfo:'Info should includes more then 30 letters!', valideInfo: false}); 
     }
     else {

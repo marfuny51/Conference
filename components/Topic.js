@@ -29,8 +29,12 @@ class Topic extends React.PureComponent {
     voteEvents.emit('EReadMore', this.props.topic.id);
   }
 
+  hide = () => {
+    voteEvents.emit('EHide', this.props.topic.id);
+  }
+
   render() {
-    let info = <div className='ReadDiv'>{this.props.topic.info}<br/><input type="button" value="Hide" className='Read' onClick={this.hide}/></div>; 
+    let info = <div className='ReadDiv'>{this.props.topic.info}<br/><input type="button" value="Hide" className='Hide' onClick={this.hide}/></div>; 
     let readMore = <input type="button" value="Read more..." className='Read' onClick={this.moreRead}/>;
     return (
       <tr key={this.props.topic.id}>
@@ -38,8 +42,8 @@ class Topic extends React.PureComponent {
         <td>{this.props.topic.mainWords}</td>
         <td>{this.props.topic.author}</td>
         <td>{((this.props.mode===55)&&(this.props.readId===this.props.topic.id))?info:readMore}</td>
-        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===2)?true:false} onClick={this.editTopic}/></td>
-        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===2)?true:false} onClick={this.deleteTopic}/></td>
+        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===4)?true:false} onClick={this.editTopic}/></td>
+        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===4)?true:false} onClick={this.deleteTopic}/></td>
       </tr>
     );
 

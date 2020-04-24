@@ -24,7 +24,7 @@ class Topics extends React.PureComponent {
     className:'TableTopic',
   }
 
-  topicsArray;
+  topicsArray;EHide
   
   componentDidMount = () => {
     this.loadData();
@@ -35,6 +35,7 @@ class Topics extends React.PureComponent {
     voteEvents.addListener('EEditTopic',this.editTopic);
     voteEvents.addListener('EditSaveTopic',this.topicSave); 
     voteEvents.addListener('EReadMore',this.readMore);    
+    voteEvents.addListener('EHide',this.hide); 
   };
 
   componentWillUnmount = () => {
@@ -45,6 +46,7 @@ class Topics extends React.PureComponent {
     voteEvents.removeListener('EEditTopic',this.editTopic);
     voteEvents.removeListener('EditSaveTopic',this.topicSave);
     voteEvents.removeListener('EReadMore',this.readMore);
+    voteEvents.removeListener('EHide',this.hide);
   };
 
   loadData = () => {
@@ -255,6 +257,10 @@ class Topics extends React.PureComponent {
 
   readMore = (id) => {
     this.setState({readId:id, mode:55})
+  }
+
+  hide = (id) => {
+    this.setState({readId:null, mode:5})
   }
   
   

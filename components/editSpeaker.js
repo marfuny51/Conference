@@ -33,26 +33,26 @@ class EditSpeaker extends React.PureComponent {
   }
 
   componentDidMount() {
-    if (!this.state.newName.match(/^[A-Za-z]+$/)) {
+    if (!this.state.newName.match(/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/)) {
       this.setState({errorName:'Name should includes only letters!', valideName: false}); 
     }
     else {
       this.setState({errorName:'', valideName: true});
     }
-    if (!this.state.newPhone.match(/[0-9]+$/)) {
-      this.setState({errorPhone:'Phone should be the same form: +375(**)***-**-**', validePhone: false}); 
+    if (!this.state.newPhone.match(/(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/)) {
+      this.setState({errorPhone:'Phone should be the same form: +375291112233', validePhone: false}); 
     }
     else {
       this.setState({errorPhone:'', validePhone: true});
     }
-    if (!this.state.newPosition.match(/^[A-Za-z]+$/)) {
-      this.setState({errorPosition:'Your position should includes only letters!', validePosition: false}); 
+    if (!this.state.newPosition.match(/^.{2,}/)) {
+      this.setState({errorPosition:'Your position should includes not less then 2 letters!', validePosition: false}); 
     }
     else {
       this.setState({errorPosition:'', validePosition: true});
     }
-    if (!this.state.newTopic.match(/^[A-Za-z]+$/)) {
-      this.setState({errorTopic:'Name of your topic should includes only letters!', valideTopic: false}); 
+    if (!this.state.newTopic.match(/^.{2,}/)) {
+      this.setState({errorTopic:'Topic should includes not less then 2 letters!', valideTopic: false}); 
     }
     else {
       this.setState({errorTopic:'', valideTopic: true});
@@ -96,7 +96,7 @@ class EditSpeaker extends React.PureComponent {
   }
   
   errorName = () => {
-    if (!this.state.newName.match(/^[A-Za-z]+$/)) {
+    if (!this.state.newName.match(/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/)) {
         this.setState({errorName:'Name should includes only letters!', valideName: false}); 
     }
     else {
@@ -105,8 +105,8 @@ class EditSpeaker extends React.PureComponent {
   }
 
   errorPhone = () => {
-    if (!this.state.newPhone.match(/[0-9]+$/)) {
-        this.setState({errorPhone:'Phone should be the same form: +375(**)***-**-**', validePhone: false}); 
+    if (!this.state.newPhone.match(/(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/)) {
+        this.setState({errorPhone:'Phone should be the same form: +375291112233', validePhone: false}); 
     }
     else {
         this.setState({errorPhone:'', validePhone: true});
@@ -114,8 +114,8 @@ class EditSpeaker extends React.PureComponent {
   }
 
   errorPosition = () => {
-    if (!this.state.newPosition.match(/^[A-Za-z]+$/)) {
-        this.setState({errorPosition:'Your position should includes only letters!', validePosition: false}); 
+    if (!this.state.newPosition.match(/^.{2,}/)) {
+        this.setState({errorPosition:'Your position should includes not less then 2 letters!', validePosition: false}); 
     }
     else {
         this.setState({errorPosition:'', validePosition: true});
@@ -123,8 +123,8 @@ class EditSpeaker extends React.PureComponent {
   }
 
   errorTopic = () => {
-    if (!this.state.newTopic.match(/^[A-Za-z]+$/)) {
-        this.setState({errorTopic:'Name of your topic should includes only letters!', valideTopic: false}); 
+    if (!this.state.newTopic.match(/^.{2,}/)) {
+        this.setState({errorTopic:'Topic should includes not less then 2 letters!', valideTopic: false}); 
     }
     else {
         this.setState({errorTopic:'', valideTopic: true});

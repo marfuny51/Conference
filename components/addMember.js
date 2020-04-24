@@ -32,26 +32,26 @@ class AddMember extends React.PureComponent {
   }
 
   componentDidMount() {
-    if (!this.state.newName.match(/^[A-Za-z0-9]{3,}/)) {
-        this.setState({errorName:'Title should includes more then 3 letters!', valideName: false}); 
+    if (!this.state.newName.match(/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/)) {
+        this.setState({errorName:'Name should includes only letters!', valideName: false}); 
     }
     else {
         this.setState({errorName:'', valideName: true});
     } 
-    if (!this.state.newPhone.match(/^[A-Za-z0-9]{3,}/)) {
-        this.setState({errorPhone:'Key words should includes more then 20 letters!', validePhone: false}); 
+    if (!this.state.newPhone.match(/(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/)) {
+        this.setState({errorPhone:'Phone should be the same form: +375291112233', validePhone: false}); 
     }
     else {
         this.setState({errorPhone:'', validePhone: true});
     } 
-    if (!this.state.newEmail.match(/^[A-Za-z]+$/)) {
-      this.setState({errorEmail:'Name should includes only letters!', valideEmail: false}); 
+    if (!this.state.newEmail.match(/^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/)) {
+      this.setState({errorEmail:'Email should be like hor@mail.com!', valideEmail: false}); 
     }
     else {
       this.setState({errorEmail:'', valideEmail: true});
     }
-    if (!this.state.newJob.match(/^[A-Za-z0-9]{3,}/)) {
-        this.setState({errorJob:'Info should includes more then 30 letters!', valideJob: false}); 
+    if (!this.state.newJob.match(/^.{2,}/)) {
+        this.setState({errorJob:'Your job should includes not less then 2 letters!', valideJob: false}); 
     }
     else {
         this.setState({errorJob:'', valideJob: true});
@@ -75,26 +75,26 @@ class AddMember extends React.PureComponent {
   }
 
   error = () => {
-    if (!this.state.newName.match(/^[A-Za-z]+$/)) {
+    if (!this.state.newName.match(/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/)) {
         this.setState({errorName:'Name should includes only letters!', valideName: false}); 
     }
     else {
         this.setState({errorName:'', valideName: true});
     }
-    if (!this.state.newPhone.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorPhone:'Title should includes more then 3 letters!', validePhone: false}); 
+    if (!this.state.newPhone.match(/(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/)) {
+      this.setState({errorPhone:'Phone should be the same form: +375291112233', validePhone: false}); 
     }
     else {
       this.setState({errorPhone:'', validePhone: true});
     } 
-    if (!this.state.newEmail.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorEmail:'Key words should includes more then 20 letters!', valideEmail: false}); 
+    if (!this.state.newEmail.match(/^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/)) {
+      this.setState({errorEmail:'Email should be like hor@mail.com!', valideEmail: false}); 
     }
     else {
       this.setState({errorEmail:'', valideEmail: true});
     } 
-    if (!this.state.newJob.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorJob:'Info should includes more then 30 letters!', valideJob: false}); 
+    if (!this.state.newJob.match(/^.{2,}/)) {
+      this.setState({errorJob:'Your job should includes not less then 2 letters!', valideJob: false}); 
     }
     else {
       this.setState({errorJob:'', valideJob: true});

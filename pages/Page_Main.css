@@ -1,24 +1,24 @@
 .Main {
     font-family: 'Muli', sans-serif;
-    margin-top: 3em;
+    margin-top: 10vh;
     color: rgba(255, 255, 255, 0.801);
     text-align: center;
 }
 
 .Main h1 {
-    font-size: 2.5em;
+    font-size: 3vw;
 }
 
 .Main p {
-    font-size: 1.5em;
+    font-size: 1.5vw;
 }
 
 .Main .Place {
-    margin-top: 3em;
+    margin-top: 13vh;
 }
 
 .Main .Net i{
-    margin-right: 1em;
+    margin-right: 2vw;
     color: #00D970;
     transition: transform 0.2s;
 }
