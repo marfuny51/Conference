@@ -7,7 +7,7 @@ class Page_Main extends React.PureComponent {
 
     return (
       <div className='Main'>
-        <h1>We glad to see you on IT-conference for beginers</h1>
+        <h1>We will be glad to see you on IT-conference for beginers</h1>
         <p>Place to meet: Minsk, Nezavisimosti Ave, 20<br/>
         Time to meet: 9:00 the 16th of May 2020</p>
         <p className='Place'>If you want to be with us, please, write us any suitable way:</p>

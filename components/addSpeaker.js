@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {voteEvents} from './events';
 
-//import './editadd.css';
+import './Speaker.css';
 
 class AddSpeaker extends React.PureComponent {
 
@@ -116,14 +116,16 @@ class AddSpeaker extends React.PureComponent {
   render() {
     
     return (
-      <div key = {this.props.id}>
-        <span>Please, enter info</span><br/>
-        <span>Name: </span><input type='text' defaultValue={this.props.name} onChange={this.setNewName}/><span>{this.state.errorName}</span><br/>
-        <span>Phone: </span><input type='text'defaultValue={this.props.phone} onChange={this.setNewPhone}/><span>{this.state.errorPhone}</span><br/>
-        <span>Position: </span><input type='text'defaultValue={this.props.position} onChange={this.setNewPosition}/><span>{this.state.errorPosition}</span><br/>
-        <span>Topic: </span><input type='text'defaultValue={this.props.topic} onChange={this.setNewTopic}/><span>{this.state.errorTopic}</span><br/>
-        <input type="button" value="Save" onClick={this.save} disabled = {(this.state.valideName&&this.state.validePhone&&this.state.validePosition&&this.state.valideTopic)?false:true}/>
-        <input type="button" value="Cancel" onClick={this.cancel}/>
+      <div key = {this.props.id} className = 'AddSpeaker'>
+        <div className='Title'>Please, enter info</div>
+        <div className='Input'>
+        <span>Name: </span><input type='text' defaultValue={this.props.name} onChange={this.setNewName}/><span className='Valide'>{this.state.errorName}</span><br/>
+        <span>Phone: </span><input type='text'defaultValue={this.props.phone} onChange={this.setNewPhone}/><span className='Valide'>{this.state.errorPhone}</span><br/>
+        <span>Position: </span><input type='text'defaultValue={this.props.position} onChange={this.setNewPosition}/><span className='Valide'>{this.state.errorPosition}</span><br/>
+        <span>Topic: </span><input type='text'defaultValue={this.props.topic} onChange={this.setNewTopic}/><span className='Valide'>{this.state.errorTopic}</span><br/>
+        </div>
+        <input type="button" value="Save" className='Read2' onClick={this.save} disabled = {(this.state.valideName&&this.state.validePhone&&this.state.validePosition&&this.state.valideTopic)?false:true}/>
+        <input type="button" value="Cancel" className='Read2' onClick={this.cancel}/>
       </div>
     );
 

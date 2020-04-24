@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {voteEvents} from './events';
 
-//import './editadd.css';
+import './Topic.css';
 
 class AddTopic extends React.PureComponent {
 
@@ -33,25 +33,25 @@ class AddTopic extends React.PureComponent {
 
   componentDidMount() {
     if (!this.state.newName.match(/^[A-Za-z]+$/)) {
-        this.setState({errorName:'Name should includes only letters!', valideName: false}); 
+        this.setState({errorName:' Name should includes only letters!', valideName: false}); 
     }
     else {
         this.setState({errorName:'', valideName: true});
     }
     if (!this.state.newTitle.match(/^[a-fA-F0–9]{3,}/)) {
-      this.setState({errorTitle:'Title should includes more then 3 letters!', valideTitle: false}); 
+      this.setState({errorTitle:' Title should includes more then 3 letters!', valideTitle: false}); 
     }
     else {
       this.setState({errorTitle:'', valideTitle: true});
     }
     if (!this.state.newMainWords.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorMainWords:'Key words should includes more then 20 letters!', valideMainWords: false}); 
+      this.setState({errorMainWords:' Key words should includes more then 20 letters!', valideMainWords: false}); 
     }
     else {
       this.setState({errorMainWords:'', valideMainWords: true});
     } 
     if (!this.state.newInfo.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorInfo:'Info should includes more then 30 letters!', valideInfo: false}); 
+      this.setState({errorInfo:' Info should includes more then 30 letters!', valideInfo: false}); 
     }
     else {
       this.setState({errorInfo:'', valideInfo: true});
@@ -76,25 +76,25 @@ class AddTopic extends React.PureComponent {
 
   error = () => {
     if (!this.state.newName.match(/^[A-Za-z]+$/)) {
-        this.setState({errorName:'Name should includes only letters!', valideName: false}); 
+        this.setState({errorName:' Name should includes only letters!', valideName: false}); 
     }
     else {
         this.setState({errorName:'', valideName: true});
     }
     if (!this.state.newTitle.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorTitle:'Title should includes more then 3 letters!', valideTitle: false}); 
+      this.setState({errorTitle:' Title should includes more then 3 letters!', valideTitle: false}); 
     }
     else {
       this.setState({errorTitle:'', valideTitle: true});
     } 
     if (!this.state.newMainWords.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorMainWords:'Key words should includes more then 20 letters!', valideMainWords: false}); 
+      this.setState({errorMainWords:' Key words should includes more then 20 letters!', valideMainWords: false}); 
     }
     else {
       this.setState({errorMainWords:'', valideMainWords: true});
     } 
     if (!this.state.newInfo.match(/^[A-Za-z0-9]{3,}/)) {
-      this.setState({errorInfo:'Info should includes more then 30 letters!', valideInfo: false}); 
+      this.setState({errorInfo:' Info should includes more then 30 letters!', valideInfo: false}); 
     }
     else {
       this.setState({errorInfo:'', valideInfo: true});
@@ -116,14 +116,16 @@ class AddTopic extends React.PureComponent {
   render() {
     
     return (
-        <div key = {this.props.id}>
-            <span>Please, enter info</span><br/>
-            <span>Title: </span><input type='text' defaultValue={this.props.title} onChange={this.setNewTitle}/><span>{this.state.errorTitle}</span><br/>
-            <span>Key words: </span><input type='text'defaultValue={this.props.mainWords} onChange={this.setNewMainWords}/><span>{this.state.errorMainWords}</span><br/>
-            <span>Author: </span><input type='text'defaultValue={this.props.author} onChange={this.setNewName}/><span>{this.state.errorName}</span><br/>
-            <span>Info: </span><textarea defaultValue={this.props.info} onChange={this.setNewInfo}/><span>{this.state.errorInfo}</span><br/>
-            <input type="button" value="Save" onClick={this.save} disabled = {(this.state.valideTitle&&this.state.valideName&&this.state.valideMainWords&&this.state.valideInfo)?false:true}/>
-            <input type="button" value="Cancel" onClick={this.cancel}/>
+        <div key = {this.props.id} className = 'AddTopic'>
+            <div className='Title'>Please, enter info</div>
+            <div className='Input'>
+            <span>Title: </span><input type='text' defaultValue={this.props.title} onChange={this.setNewTitle}/><span className='Valide'>{this.state.errorTitle}</span><br/>
+            <span>Key words: </span><input type='text'defaultValue={this.props.mainWords} onChange={this.setNewMainWords}/><span className='Valide'>{this.state.errorMainWords}</span><br/>
+            <span>Author: </span><input type='text'defaultValue={this.props.author} onChange={this.setNewName}/><span className='Valide'>{this.state.errorName}</span><br/>
+            <span>Info: </span><textarea className='Textarea' defaultValue={this.props.info} onChange={this.setNewInfo}/><span className='Valide'>{this.state.errorInfo}</span><br/>
+            </div>
+            <input type="button" value="Save" className='Read2' onClick={this.save} disabled = {(this.state.valideTitle&&this.state.valideName&&this.state.valideMainWords&&this.state.valideInfo)?false:true}/>
+            <input type="button" value="Cancel" className='Read2' onClick={this.cancel}/>
         </div>
     );
 

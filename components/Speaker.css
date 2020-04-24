@@ -2,14 +2,14 @@
     text-align: center;
 }
 
-.TableTopic {
+.TableSpeaker {
     border-collapse: collapse;
     width: 70em;
     height: 8em;
     margin: 2em auto 1em auto;
 }
 
-.TableTopicAdd {
+.TableSpeakerAdd {
     border-collapse: collapse;
     width: 70em;
     height: 8em;
@@ -107,9 +107,9 @@
     color: white;
 }
 
-.AddTopic {
+.AddSpeaker {
     width: 45em;
-    height: 18em;
+    height: 13em;
     position: absolute;
     top: 35%;
     left: 32%;

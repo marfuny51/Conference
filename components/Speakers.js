@@ -6,7 +6,7 @@ import Speaker from './Speaker';
 import AddSpeaker from './addSpeaker';
 import EditSpeaker from './editSpeaker';
 
-import './Speakers.css';
+import './Speaker.css';
 
 class Speakers extends React.PureComponent {
   
@@ -18,7 +18,7 @@ class Speakers extends React.PureComponent {
   state = {
     dataReady: false,
     speakers: [],
-    deleteCode: null,
+    className: 'TableSpeaker',
     editCode: null,
     mode: null, //0 -view, 1- edit, 2 -add
   }
@@ -73,7 +73,7 @@ class Speakers extends React.PureComponent {
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.speakers);
             
-              this.setState({ dataReady:true, speakers:this.speakersArray.speakers});
+              this.setState({ dataReady:true, speakers:this.speakersArray.speakers, className:'TableTopic'});
             
         })
         .catch( error => {
@@ -228,15 +228,15 @@ class Speakers extends React.PureComponent {
 
   speakerCancel = () => {
     let speakers = [...this.state.speakers];
-    this.setState({mode:0, speakers: speakers});
+    this.setState({mode:0, speakers: speakers, className:'TableTopic'});
   }
 
   addSpeaker = (EO) => {
-    this.setState({mode:2})
+    this.setState({mode:2, className:'TableTopicAdd'})
   }
   
   editSpeaker = (id) => {
-    this.setState( {editCode:id, mode:1})
+    this.setState( {editCode:id, mode:1, className:'TableTopicAdd'})
   }
 
   getRandomInt(min, max) {
@@ -245,7 +245,7 @@ class Speakers extends React.PureComponent {
   
   render() {
     if ( !this.state.dataReady )
-      return <div>загрузка данных...</div>;
+      return <div className = 'LoadData'>загрузка данных...</div>;
 
     let speakers = [...this.state.speakers];
     let speakers2 = [...this.state.speakers];
@@ -258,10 +258,9 @@ class Speakers extends React.PureComponent {
     var editCode = speakers2.find( speaker => speaker.id === this.state.editCode); 
 
     return (
-      <div>
-        <div>Speakers</div>
-        <table>
-        <thead>
+      <div className='Table'>
+        <table className={this.state.className}>
+        <thead className='TableHead'>
               <tr>
                   <th>Name</th>
                   <th>Phone</th>
@@ -271,11 +270,11 @@ class Speakers extends React.PureComponent {
                   <th>Delete</th>
               </tr>
           </thead>
-          <tbody>
+          <tbody className='TableBody'>
           {speakersCode}
           </tbody>
         </table>
-        <input type="button" value="Add a new speaker" onClick = {this.addSpeaker} disabled = {(this.state.mode===2)?true:false}/>
+        <input type="button" value="Add a new speaker" className='Add' onClick = {this.addSpeaker} disabled = {(this.state.mode===2)?true:false}/>
 
       {
         (this.state.mode===2)&&

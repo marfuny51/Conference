@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import {voteEvents} from './events';
 
-//import './Member.css';
+import './Member.css';
 
 class Member extends React.PureComponent {
 
@@ -29,12 +29,12 @@ class Member extends React.PureComponent {
     
     return (
       <tr key={this.props.member.id}>
-        <td><NavLink to={"/topic/"+this.props.member.name}>{this.props.member.name}</NavLink></td>
+        <td><NavLink to={"/topic/"+this.props.member.name} className='NavLink'>{this.props.member.name}</NavLink></td>
         <td>{this.props.member.phone}</td>
         <td>{this.props.member.email}</td>
         <td>{this.props.member.job}</td>
-        <td><input type="button" value="Edit" disabled = {(this.props.mode===8)?true:false} onClick={this.editMember}/></td>
-        <td><input type="button" value="Delete" disabled = {(this.props.mode===8)?true:false} onClick={this.deleteMember}/></td>
+        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===8)?true:false} onClick={this.editMember}/></td>
+        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===8)?true:false} onClick={this.deleteMember}/></td>
       </tr>
     );
 

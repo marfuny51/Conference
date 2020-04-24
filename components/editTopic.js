@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {voteEvents} from './events';
 
-//import './editadd.css';
+import './Topic.css';
 
 class EditTopic extends React.PureComponent {
 
@@ -148,14 +148,16 @@ class EditTopic extends React.PureComponent {
   render() {
     
     return (
-          <div key = {this.props.id}>
-            <span>Please, edit info</span><br/>
-            <span>Title: </span><input type='text' defaultValue={this.props.title} onChange={this.setNewTitle}/><span>{this.state.errorTitle}</span><br/>
-            <span>Key words: </span><input type='text'defaultValue={this.props.mainWords} onChange={this.setNewMainWords}/><span>{this.state.errorMainWords}</span><br/>
-            <span>Author: </span><input type='text'defaultValue={this.props.author} onChange={this.setNewAuthor}/><span>{this.state.errorAuthor}</span><br/>
-            <span>Info: </span><textarea defaultValue={this.props.info} onChange={this.setNewInfo}/><span>{this.state.errorInfo}</span><br/>
-            <input type="button" value="Save" onClick={this.saveTopic} disabled = {(this.state.valideTitle&&this.state.valideAuthor&&this.state.valideMainWords&&this.state.valideInfo)?false:true}/>
-            <input type="button" value="Cancel" onClick={this.cancelTopic}/>
+          <div key = {this.props.id} className = 'AddTopic'>
+            <div className='Title'>Please, edit info</div>
+            <div className='Input'>
+              <span>Title: </span><input type='text' defaultValue={this.props.title} onChange={this.setNewTitle}/><span className='Valide'>{this.state.errorTitle}</span><br/>
+              <span>Key words: </span><input type='text'defaultValue={this.props.mainWords} onChange={this.setNewMainWords}/><span className='Valide'>{this.state.errorMainWords}</span><br/>
+              <span>Author: </span><input type='text'defaultValue={this.props.author} onChange={this.setNewAuthor}/><span className='Valide'>{this.state.errorAuthor}</span><br/>
+              <span>Info: </span><textarea className='Textarea' defaultValue={this.props.info} onChange={this.setNewInfo}/><span className='Valide'>{this.state.errorInfo}</span><br/>
+            </div>
+            <input type="button" value="Save" className='Read2' onClick={this.saveTopic} disabled = {(this.state.valideTitle&&this.state.valideAuthor&&this.state.valideMainWords&&this.state.valideInfo)?false:true}/>
+            <input type="button" value="Cancel" className='Read2' onClick={this.cancelTopic}/>
           </div>
     );
   }

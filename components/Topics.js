@@ -6,7 +6,7 @@ import Topic from './Topic';
 import AddTopic from './addTopic';
 import EditTopic from './editTopic';
 
-import './Topics.css';
+import './Topic.css';
 
 class Topics extends React.PureComponent {
 
@@ -18,9 +18,9 @@ class Topics extends React.PureComponent {
   state = {
     dataReady: false,
     topics: [],
-    deleteCode: null,
     editCode: null,
     mode: null, //3- edit, 4 -add, 5- view
+    className:'TableTopic',
   }
 
   topicsArray;
@@ -73,7 +73,7 @@ class Topics extends React.PureComponent {
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.topics);
             
-              this.setState({ dataReady:true, topics:this.speakersArray.topics});
+              this.setState({ dataReady:true, topics:this.speakersArray.topics, className:'TableTopic'});
             
         })
         .catch( error => {
@@ -235,15 +235,15 @@ class Topics extends React.PureComponent {
 
   topicCancel = () => {
     let topics = [...this.state.topics];
-    this.setState({mode:5, topics: topics});
+    this.setState({mode:5, topics: topics, className:'TableTopic'});
   }
 
   addTopic = (EO) => {
-    this.setState({mode:4})
+    this.setState({mode:4, className:'TableTopicAdd'})
   }
 
   editTopic = (id) => {
-    this.setState( {editCode:id, mode:3})
+    this.setState( {editCode:id, mode:3, className:'TableTopicAdd'})
   }
 
   getRandomInt(min, max) {
@@ -253,7 +253,7 @@ class Topics extends React.PureComponent {
   
   render() {
     if ( !this.state.dataReady )
-      return <div>загрузка данных...</div>;
+      return <div className = 'LoadData'>загрузка данных...</div>;
 
     let topics = [...this.state.topics];
     let topics2 = [...this.state.topics];
@@ -268,7 +268,7 @@ class Topics extends React.PureComponent {
 
     return (
       <div className='Table'>
-        <table className='TableTopic'>
+        <table className={this.state.className}>
         <thead className='TableHead'>
               <tr>
                   <th>Title</th>
@@ -283,7 +283,7 @@ class Topics extends React.PureComponent {
           {topicsCode}
           </tbody>
         </table>
-        <input type="button" value="Add a new topic" onClick = {this.addTopic} disabled = {(this.state.mode===4)?true:false}/>
+        <input type="button" value="Add a new topic" className='Add' onClick = {this.addTopic} disabled = {(this.state.mode===4)?true:false}/>
         {
         (this.state.mode===4)&&
           <AddTopic key={this.getRandomInt(1, 10000)}

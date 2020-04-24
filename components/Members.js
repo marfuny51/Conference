@@ -6,7 +6,7 @@ import Member from './Member';
 import AddMember from './addMember';
 import EditMember from './editMember';
 
-import './Topics.css';
+import './Member.css';
 
 class Members extends React.PureComponent {
 
@@ -20,6 +20,7 @@ class Members extends React.PureComponent {
     members: [],
     editCode: null,
     mode: null, //6 - view, 7 - edit, 8- add
+    className: 'TableMember',
   }
 
   membersArray;
@@ -72,7 +73,7 @@ class Members extends React.PureComponent {
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.members);
             
-              this.setState({ dataReady:true, members:this.speakersArray.members});
+              this.setState({ dataReady:true, members:this.speakersArray.members, className:'TableMember'});
             
         })
         .catch( error => {
@@ -234,15 +235,15 @@ class Members extends React.PureComponent {
 
   memberCancel = () => {
     let members = [...this.state.members];
-    this.setState({mode:6, members: members});
+    this.setState({mode:6, members: members, className: 'TableMember'});
   }
 
   addMember = (EO) => {
-    this.setState({mode:8})
+    this.setState({mode:8, className: 'TableMemberAdd'})
   }
 
   memberEdit = (id) => {
-    this.setState( {editCode:id, mode:7})
+    this.setState( {editCode:id, mode:7, className: 'TableMemberAdd'})
   }
 
   getRandomInt(min, max) {
@@ -251,7 +252,7 @@ class Members extends React.PureComponent {
   
   render() {
     if ( !this.state.dataReady )
-      return <div>загрузка данных...</div>;
+      return <div className = 'LoadData'>загрузка данных...</div>;
 
     let members = [...this.state.members];
     let members2 = [...this.state.members];
@@ -265,10 +266,9 @@ class Members extends React.PureComponent {
     var editCode = members2.find( member => member.id === this.state.editCode); 
 
     return (
-      <div>
-        <div>Members</div>
-        <table>
-        <thead>
+      <div className='Table'>
+        <table className={this.state.className}>
+        <thead className='TableHead'>
               <tr>
                   <th>Name</th>
                   <th>Phone</th>
@@ -278,11 +278,11 @@ class Members extends React.PureComponent {
                   <th>Delete</th>
               </tr>
           </thead>
-          <tbody>
+          <tbody className='TableBody'>
           {membersCode}
           </tbody>
         </table>
-        <input type="button" value="Add a new member" onClick = {this.addMember} disabled = {(this.state.mode===8)?true:false}/>
+        <input type="button" value="Add a new member" className='Add' onClick = {this.addMember} disabled = {(this.state.mode===8)?true:false}/>
         {
         (this.state.mode===8)&&
           <AddMember key={this.getRandomInt(1, 10000)}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import {voteEvents} from './events';
 
-//import './Speakers.css';
+import './Speaker.css';
 
 class Speaker extends React.PureComponent {
 
@@ -29,12 +29,12 @@ class Speaker extends React.PureComponent {
 
     return (
     <tr>
-        <td><NavLink to={"/speaker/"+this.props.speaker.id}>{this.props.speaker.name}</NavLink></td>
+        <td><NavLink to={"/speaker/"+this.props.speaker.id} className='NavLink'>{this.props.speaker.name}</NavLink></td>
         <td>{this.props.speaker.phone}</td>
         <td>{this.props.speaker.position}</td>
         <td>{this.props.speaker.topic}</td>
-        <td><input type="button" value="Edit" disabled = {(this.props.mode===2)?true:false} onClick={this.editSpeaker}/></td>
-        <td><input type="button" value="Delete" disabled = {(this.props.mode===2)?true:false} onClick={this.deleteSpeaker}/></td>
+        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===2)?true:false} onClick={this.editSpeaker}/></td>
+        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===2)?true:false} onClick={this.deleteSpeaker}/></td>
     </tr>
     );
 
