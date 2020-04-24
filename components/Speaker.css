@@ -137,6 +137,7 @@
 }
 
 .Input input{
+    font-size: 1vw;
     width: 9vw;
     height: 2.5vh;
 }

@@ -137,11 +137,13 @@
 }
 
 .Input input{
+    font-size: 1vw;
     width: 9vw;
     height: 2.5vh;
 }
 
 .Input textarea{
+    font-size: 1vw;
     width: 16vw;
     height: 17.5vh;
 }
