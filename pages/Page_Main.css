@@ -20,7 +20,8 @@
 .Main .Net i{
     margin-right: 1em;
     color: #00D970;
+    transition: transform 0.2s;
 }
 .Main .Net i:hover{
-    font-size: 1.2em;
+    transform: scale(1.4);
 }

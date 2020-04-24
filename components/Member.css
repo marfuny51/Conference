@@ -57,7 +57,7 @@
 
 .Read:hover {
     font-weight: bold;
-    height: 2.5em;
+    transform: scale(1.03);
     border:0.2em solid #456835;
     cursor: pointer;
 }
@@ -74,7 +74,7 @@
 
 .Read2:hover {
     font-weight: bold;
-    height: 2.5em;
+    transform: scale(1.03);
     border:0.2em solid #456835;
     cursor: pointer;
 }
@@ -91,7 +91,7 @@
 }
 
 .Add:hover {
-    font-size: 1.1em;
+    transform: scale(1.03);
     border:0.2em solid #456835;
     cursor: pointer;
 }

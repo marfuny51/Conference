@@ -154,7 +154,7 @@ class EditMember extends React.PureComponent {
               <span>Name: </span><input type='text' defaultValue={this.props.name} onChange={this.setNewName}/><span className='Valide'>{this.state.errorName}</span><br/>
               <span>Phone: </span><input type='text'defaultValue={this.props.phone} onChange={this.setNewPhone}/><span className='Valide'>{this.state.errorPhone}</span><br/>
               <span>Email: </span><input type='text'defaultValue={this.props.email} onChange={this.setNewEmail}/><span className='Valide'>{this.state.errorEmail}</span><br/>
-              <span>Job: </span><textarea defaultValue={this.props.job} onChange={this.setNewJob}/><span className='Valide'>{this.state.errorJob}</span><br/>
+              <span>Job: </span><input type='text' defaultValue={this.props.job} onChange={this.setNewJob}/><span className='Valide'>{this.state.errorJob}</span><br/>
             </div>
             <input type="button" value="Save" className='Read2' onClick={this.saveMember} disabled = {(this.state.valideName&&this.state.validePhone&&this.state.valideEmail&&this.state.valideJob)?false:true}/>
             <input type="button" value="Cancel" className='Read2' onClick={this.cancelMember}/>

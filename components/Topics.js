@@ -20,11 +20,12 @@ class Topics extends React.PureComponent {
     topics: [],
     editCode: null,
     mode: null, //3- edit, 4 -add, 5- view
+    readId: null,
     className:'TableTopic',
   }
 
   topicsArray;
-
+  
   componentDidMount = () => {
     this.loadData();
     //this.mounted = true;
@@ -32,7 +33,8 @@ class Topics extends React.PureComponent {
     voteEvents.addListener('ECancelTopic',this.topicCancel);
     voteEvents.addListener('EDeleteTopic',this.delete);
     voteEvents.addListener('EEditTopic',this.editTopic);
-    voteEvents.addListener('EditSaveTopic',this.topicSave);     
+    voteEvents.addListener('EditSaveTopic',this.topicSave); 
+    voteEvents.addListener('EReadMore',this.readMore);    
   };
 
   componentWillUnmount = () => {
@@ -42,6 +44,7 @@ class Topics extends React.PureComponent {
     voteEvents.removeListener('EDeleteTopic',this.delete);
     voteEvents.removeListener('EEditTopic',this.editTopic);
     voteEvents.removeListener('EditSaveTopic',this.topicSave);
+    voteEvents.removeListener('EReadMore',this.readMore);
   };
 
   loadData = () => {
@@ -248,6 +251,10 @@ class Topics extends React.PureComponent {
 
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  readMore = (id) => {
+    this.setState( {readId:id, mode:55})
   }
   
   
