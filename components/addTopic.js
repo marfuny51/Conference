@@ -110,7 +110,10 @@ class AddTopic extends React.PureComponent {
   }
 
   cancel = () => {
-    voteEvents.emit('ECancelTopic');
+    let question = confirm('Are you sure you do not want to save the changes?');
+    if(question) {
+      voteEvents.emit('ECancelTopic');
+    }
   }
 
   render() {

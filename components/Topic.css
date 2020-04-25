@@ -66,6 +66,10 @@
     transform: scale(1.03);
 }
 
+.ReadNone {
+    display: none;
+}
+
 .Read2 {
     font-family: 'Muli', sans-serif;
     font-size: 1vw;
@@ -175,6 +179,34 @@
 }
 
 .ReadDiv {
-    width: 30vw;
+    width: 27vw;
+    height: 0vh;
     margin: auto;
+    opacity: 0;
+    display: none;
+}
+
+.ReadDivAnim1 {
+    display: block;
+    transition-duration: 0.7s;
+    -webkit-transition-timing-function: linear; 
+    transition-timing-function: linear;
+    overflow: hidden;
+    width: 27vw;
+    height: 22vh; 
+    opacity: 1;  
+}
+
+.ReadDivAnim2 {
+    transition-duration: 0.7s;
+    -webkit-transition-timing-function: linear; 
+    transition-timing-function: linear;
+    overflow: hidden;
+    width: 27vw;
+    height: 0vh; 
+    opacity: 0;  
+}
+
+.TableBody .LinkTd {
+    width: 35vw;
 }

@@ -29,7 +29,6 @@ class EditTopic extends React.PureComponent {
     valideMainWords: true,
     valideAuthor: true,
     valideInfo: true,
-    changeProduct: false,
   }
 
   componentDidMount() {
@@ -61,37 +60,37 @@ class EditTopic extends React.PureComponent {
 
   setNewAuthor = (EO) => {
     if(this.props.author!==EO.target.value) {
-      this.setState({newAuthor: EO.target.value, changeProduct: true}, this.errorAuthor);
+      this.setState({newAuthor: EO.target.value}, this.errorAuthor);
     }
     else {
-      this.setState({newAuthor:this.props.author, changeProduct: false}, this.errorAuthor);
+      this.setState({newAuthor:this.props.author}, this.errorAuthor);
     }  
   }
 
   setNewTitle = (EO) => {
     if(this.props.title!==EO.target.value) {
-        this.setState({newTitle: EO.target.value, changeProduct: true}, this.errorTitle);
+        this.setState({newTitle: EO.target.value}, this.errorTitle);
     }
     else {
-        this.setState({newTitle:this.props.title, changeProduct: false}, this.errorTitle);
+        this.setState({newTitle:this.props.title}, this.errorTitle);
     } 
   }
 
   setNewMainWords = (EO) => {
     if(this.props.mainWords!==EO.target.value) {
-        this.setState({newMainWords: EO.target.value, changeProduct: true}, this.errorMainWords);
+        this.setState({newMainWords: EO.target.value}, this.errorMainWords);
     }
     else {
-        this.setState({newMainWords:this.props.mainWords, changeProduct: false}, this.errorMainWords);
+        this.setState({newMainWords:this.props.mainWords}, this.errorMainWords);
     } 
   }
 
   setNewInfo = (EO) => {
     if(this.props.info!==EO.target.value) {
-        this.setState({newInfo: EO.target.value, changeProduct: true}, this.errorInfo);
+        this.setState({newInfo: EO.target.value}, this.errorInfo);
     }
     else {
-        this.setState({newInfo:this.props.info, changeProduct: false}, this.errorInfo);
+        this.setState({newInfo:this.props.info}, this.errorInfo);
     } 
   }
 
@@ -132,7 +131,6 @@ class EditTopic extends React.PureComponent {
   }
 
   saveTopic = () => {
-    this.state.changeProduct = false;
       let title=this.state.newTitle;
       let mainWords=this.state.newMainWords;
       let author=this.state.newAuthor;
@@ -142,7 +140,10 @@ class EditTopic extends React.PureComponent {
   
 
   cancelTopic = () => {
-    voteEvents.emit('ECancelTopic');
+    let question = confirm('Are you sure you do not want to save the changes?');
+    if(question) {
+      voteEvents.emit('ECancelTopic');
+    }
   }
 
   render() {

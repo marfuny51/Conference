@@ -256,11 +256,11 @@ class Topics extends React.PureComponent {
   }
 
   readMore = (id) => {
-    this.setState({readId:id, mode:55})
+    //this.setState({readId:id, mode:55})
   }
 
   hide = (id) => {
-    this.setState({readId:null, mode:5})
+    //this.setState({readId:null, mode:5})
   }
   
   

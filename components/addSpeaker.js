@@ -110,7 +110,10 @@ class AddSpeaker extends React.PureComponent {
   }
 
   cancel = () => {
-    voteEvents.emit('ECancel');
+    let question = confirm('Are you sure you do not want to save the changes?');
+    if(question) {
+      voteEvents.emit('ECancel');
+    }
   }
 
   render() {

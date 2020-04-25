@@ -232,6 +232,7 @@ class Members extends React.PureComponent {
             this.fetchError(error.message);
         });
       }
+    
 
   memberCancel = () => {
     let members = [...this.state.members];

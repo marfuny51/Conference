@@ -110,7 +110,10 @@ class AddMember extends React.PureComponent {
   }
 
   cancel = () => {
-    voteEvents.emit('ECancelMember');
+    let question = confirm('Are you sure you do not want to save the changes?');
+    if(question) {
+      voteEvents.emit('ECancelMember');
+    }
   }
 
   render() {

@@ -18,7 +18,10 @@ class Member extends React.PureComponent {
   };
 
   deleteMember = () => {
-    voteEvents.emit('EDeleteMember', this.props.member.id);
+    let question = confirm('Do you sure? You are going to delete this information.');
+    if(question) {
+      voteEvents.emit('EDeleteMember', this.props.member.id);
+    }
   }
 
   editMember = () => {

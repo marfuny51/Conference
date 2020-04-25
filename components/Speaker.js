@@ -18,7 +18,10 @@ class Speaker extends React.PureComponent {
   };
 
   deleteSpeaker = () => {
-    voteEvents.emit('EDelete', this.props.speaker.id);
+    let question = confirm('Do you sure? You are going to delete this information.');
+    if(question) {
+      voteEvents.emit('EDelete', this.props.speaker.id);
+    }
   }
 
   editSpeaker = () => {

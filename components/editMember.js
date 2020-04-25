@@ -29,7 +29,6 @@ class EditMember extends React.PureComponent {
     validePhone: true,
     valideEmail: true,
     valideJob: true,
-    changeProduct: false,
   }
 
   componentDidMount() {
@@ -61,37 +60,37 @@ class EditMember extends React.PureComponent {
 
   setNewName = (EO) => {
     if(this.props.name!==EO.target.value) {
-      this.setState({newName: EO.target.value, changeProduct: true}, this.errorName);
+      this.setState({newName: EO.target.value}, this.errorName);
     }
     else {
-      this.setState({newName:this.props.name, changeProduct: false}, this.errorName);
+      this.setState({newName:this.props.name}, this.errorName);
     }  
   }
 
   setNewPhone = (EO) => {
     if(this.props.phone!==EO.target.value) {
-        this.setState({newPhone: EO.target.value, changeProduct: true}, this.errorPhone);
+        this.setState({newPhone: EO.target.value}, this.errorPhone);
     }
     else {
-        this.setState({newPhone:this.props.phone, changeProduct: false}, this.errorPhone);
+        this.setState({newPhone:this.props.phone}, this.errorPhone);
     } 
   }
 
   setNewEmail = (EO) => {
     if(this.props.email!==EO.target.value) {
-        this.setState({newEmail: EO.target.value, changeProduct: true}, this.errorEmail);
+        this.setState({newEmail: EO.target.value}, this.errorEmail);
     }
     else {
-        this.setState({newEmail:this.props.email, changeProduct: false}, this.errorEmail);
+        this.setState({newEmail:this.props.email}, this.errorEmail);
     } 
   }
 
   setNewJob = (EO) => {
     if(this.props.job!==EO.target.value) {
-        this.setState({newJob: EO.target.value, changeProduct: true}, this.errorJob);
+        this.setState({newJob: EO.target.value}, this.errorJob);
     }
     else {
-        this.setState({newJob:this.props.job, changeProduct: false}, this.errorJob);
+        this.setState({newJob:this.props.job}, this.errorJob);
     } 
   }
 
@@ -132,7 +131,6 @@ class EditMember extends React.PureComponent {
   }
 
   saveMember = () => {
-    this.state.changeProduct = false;
       let name=this.state.newName;
       let phone=this.state.newPhone;
       let email=this.state.newEmail;
@@ -142,7 +140,10 @@ class EditMember extends React.PureComponent {
   
 
   cancelMember = () => {
-    voteEvents.emit('ECancelMember');
+    let question = confirm('Are you sure you do not want to save the changes?');
+    if(question) {
+      voteEvents.emit('ECancelMember');
+    }
   }
 
   render() {

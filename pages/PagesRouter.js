@@ -9,6 +9,7 @@ import Page_Speakers from './Page_Speakers';
 import Page_Speaker from './Page_Speaker';
 import Page_Members from './Page_Members';
 import Page_Member from './Page_Member';
+import Page_Full from './Page_Full';
 
 class PagesRouter extends React.Component {
           
@@ -20,6 +21,7 @@ class PagesRouter extends React.Component {
         <Route path="/topics" component={Page_Topics} />
         <Route path="/speakers" component={Page_Speakers} />
         <Route path="/members" component={Page_Members} />
+        <Route path="/full" component={Page_Full} />
       </div>
     );
     

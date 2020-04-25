@@ -29,7 +29,6 @@ class EditSpeaker extends React.PureComponent {
     validePhone: true,
     validePosition: true,
     valideTopic: true,
-    changeProduct: false,
   }
 
   componentDidMount() {
@@ -61,37 +60,37 @@ class EditSpeaker extends React.PureComponent {
 
   setNewName = (EO) => {
     if(this.props.name!==EO.target.value) {
-      this.setState({newName: EO.target.value, changeProduct: true}, this.errorName);
+      this.setState({newName: EO.target.value}, this.errorName);
     }
     else {
-      this.setState({newName:this.props.name, changeProduct: false}, this.errorName);
+      this.setState({newName:this.props.name}, this.errorName);
     }  
   }
 
   setNewPhone = (EO) => {
     if(this.props.phone!==EO.target.value) {
-      this.setState({newPhone: EO.target.value, changeProduct: true}, this.errorPhone);
+      this.setState({newPhone: EO.target.value}, this.errorPhone);
     }
     else {
-      this.setState({newPhone: this.props.phone, changeProduct: false}, this.errorPhone);
+      this.setState({newPhone: this.props.phone}, this.errorPhone);
     }  
   }
 
   setNewPosition = (EO) => {
     if(this.props.position!==EO.target.value) {
-      this.setState({newPosition: EO.target.value, changeProduct: true}, this.errorPosition);
+      this.setState({newPosition: EO.target.value}, this.errorPosition);
     }
     else {
-      this.setState({newPosition: this.props.position, changeProduct: false}, this.errorPosition);
+      this.setState({newPosition: this.props.position}, this.errorPosition);
     }  
   }
 
   setNewTopic = (EO) => {
     if(this.props.topic!==EO.target.value) {
-      this.setState({newTopic: EO.target.value, changeProduct: true}, this.errorTopic);
+      this.setState({newTopic: EO.target.value}, this.errorTopic);
     }
     else {
-      this.setState({newTopic: this.props.topic, changeProduct: false}, this.errorTopic);
+      this.setState({newTopic: this.props.topic}, this.errorTopic);
     }  
   }
   
@@ -132,7 +131,6 @@ class EditSpeaker extends React.PureComponent {
   }
 
   save = () => {
-    this.state.changeProduct = false;
     let name=this.state.newName;
     let phone=this.state.newPhone;
     let position=this.state.newPosition;
@@ -143,7 +141,10 @@ class EditSpeaker extends React.PureComponent {
   }
 
   cancel = () => {
-    voteEvents.emit('ECancel');
+    let question = confirm('Are you sure you do not want to save the changes?');
+    if(question) {
+      voteEvents.emit('ECancel');
+    }
   }
 
   render() {

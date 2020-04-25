@@ -14,6 +14,7 @@ class PagesLinks extends React.Component {
         <NavLink to="/topics" className="PageLink" activeClassName="ActivePageLink">Topics</NavLink>
         <NavLink to="/speakers" className="PageLink" activeClassName="ActivePageLink">Speakers</NavLink>
         <NavLink to="/members" className="PageLink" activeClassName="ActivePageLink">Members</NavLink>
+        <NavLink to="/full" className="PageLink" activeClassName="ActivePageLink">Full info</NavLink>
       </div>
     );
     

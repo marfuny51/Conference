@@ -17,8 +17,16 @@ class Topic extends React.PureComponent {
     }),
   };
 
+  state = {
+    classNameDiv: 'ReadDiv',
+    classNameRead: 'Read',
+  }
+
   deleteTopic = () => {
-    voteEvents.emit('EDeleteTopic', this.props.topic.id);
+    let question = confirm('Do you sure? You are going to delete this information.');
+    if(question) {
+      voteEvents.emit('EDeleteTopic', this.props.topic.id);
+    }
   }
 
   editTopic = () => {
@@ -26,22 +34,24 @@ class Topic extends React.PureComponent {
   }
 
   moreRead = () => {
+    this.setState({classNameDiv:'ReadDivAnim1', classNameRead:'ReadNone'});
     voteEvents.emit('EReadMore', this.props.topic.id);
   }
 
   hide = () => {
+    this.setState({classNameDiv:'ReadDivAnim2', classNameRead:'Read'});
     voteEvents.emit('EHide', this.props.topic.id);
   }
 
   render() {
-    let info = <div className='ReadDiv'>{this.props.topic.info}<br/><input type="button" value="Hide" className='Hide' onClick={this.hide}/></div>; 
-    let readMore = <input type="button" value="Read more..." className='Read' onClick={this.moreRead}/>;
+    let info = <div className={this.state.classNameDiv}>{this.props.topic.info}<br/><input type="button" value="Hide" className='Hide' onClick={this.hide}/></div>; 
+    let readMore = <input type="button" value="Read more..." className={this.state.classNameRead} onClick={this.moreRead}/>;
     return (
       <tr key={this.props.topic.id}>
-        <td><NavLink to={"/topic/"+this.props.topic.id} className='NavLink'>{this.props.topic.title}</NavLink></td>
+        <td className='LinkTd'><NavLink to={"/topic/"+this.props.topic.id} className='NavLink'>{this.props.topic.title}</NavLink></td>
         <td>{this.props.topic.mainWords}</td>
         <td>{this.props.topic.author}</td>
-        <td>{((this.props.mode===55)&&(this.props.readId===this.props.topic.id))?info:readMore}</td>
+        <td>{info}{readMore}</td>
         <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===4)?true:false} onClick={this.editTopic}/></td>
         <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===4)?true:false} onClick={this.deleteTopic}/></td>
       </tr>
