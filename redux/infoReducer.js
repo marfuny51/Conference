@@ -1,4 +1,4 @@
-import { INFO_LOADING, INFO_ERROR, INFO_SET } from './infoAC';
+import { INFO_LOADING, INFO_ERROR, INFO_SET, INFO_SORT } from './infoAC';
 
 const initState={
 
@@ -29,8 +29,15 @@ function infoReducer(state=initState,action) {
     case INFO_SET: {
       let newState={
         status:3,
-        data:JSON.parse(action.info.result),
+        data:action.info,
       };
+      return newState;
+    }
+
+    case INFO_SORT: {
+      let newState={...state};
+      newState.status = 3;
+      newState.data = action.info.sort(function(a, b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);});
       return newState;
     }
     

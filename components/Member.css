@@ -51,7 +51,7 @@
 .Read {
     font-family: 'Muli', sans-serif;
     font-size: 1vw;
-    height: 4.2vh;
+    height: 2vw;
     background-color: #a2eca3;
     color: black;
     border-radius: 0.5vw;
@@ -68,7 +68,7 @@
 .Read2 {
     font-family: 'Muli', sans-serif;
     font-size: 1vw;
-    height: 4.2vh;
+    height: 2vw;
     background-color: #a2eca3;
     color: black;
     border-radius: 0.5vw;
@@ -87,7 +87,7 @@
     font-family: 'Muli', sans-serif;
     font-size: 1.1vw;
     font-weight: bold;
-    height: 6.5vh;
+    height: 3vw;
     background-color: #a2eca3;
     color: black;
     border-radius: 0.5vw;
@@ -113,7 +113,7 @@
 
 .AddMember {
     width: 48vw;
-    height: 32vh;
+    height: 14vw;
     position: absolute;
     top: 35%;
     left: 26%;
@@ -139,7 +139,7 @@
 .Input input{
     font-size: 1vw;
     width: 9vw;
-    height: 2.5vh;
+    height: 1.2vw;
 }
 
 .Valide {

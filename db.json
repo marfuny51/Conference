@@ -1,0 +1,40 @@
+{
+    "partners": [
+      {
+        "id": 1,
+        "name": "ELAM System"
+      },
+      {
+        "id": 2,
+        "name": "MediaCorporation"
+      },
+      {
+        "id": 3,
+        "name": "Sistem knowledges"
+      },
+      {
+        "id": 4,
+        "name": "Sasha&Co"
+      },
+      {
+        "id": 5,
+        "name": "OBKresult"
+      },
+      {
+        "id": 6,
+        "name": "RealGoodCompany"
+      },
+      {
+        "id": 7,
+        "name": "DataBaseGroup"
+      },
+      {
+        "id": 8,
+        "name": "CleanMinds"
+      },
+      {
+        "id": 9,
+        "name": "GogleCom"
+      }
+    ]
+  }
