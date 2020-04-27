@@ -7,6 +7,7 @@
     width: 70vw;
     height: 10vh;
     margin: 6vh auto 2vh auto;
+    table-layout: fixed;
 }
 
 .TableTopicAdd {
@@ -15,6 +16,7 @@
     height: 10vh;
     margin: 6vh auto 2vh auto;
     opacity:0.3;
+    table-layout: fixed;
 }
 
 .TableHead {
@@ -208,6 +210,21 @@
 }
 
 .TableBody .LinkTd {
-    width: 35vw;
     font-weight: bold;
+}
+
+.col1 {
+    width: 15vw;
+}
+
+.col2 {
+    width: 10vw;
+}
+
+.col3 {
+    width: 27vw;
+}
+
+.col4 {
+    width: 6vw;
 }

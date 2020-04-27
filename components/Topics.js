@@ -283,6 +283,12 @@ class Topics extends React.PureComponent {
     return (
       <div className='Table'>
         <table className={this.state.className}>
+        <colgroup>
+        <col className="col1"/>
+        <col span="2" className="col2"/>
+        <col className="col3"/>
+        <col span="2" className="col4"/>
+        </colgroup>
         <thead className='TableHead'>
               <tr>
                   <th>Title</th>
