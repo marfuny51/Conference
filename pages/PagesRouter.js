@@ -20,7 +20,7 @@ class PagesRouter extends React.Component {
         <Route path="/speakers" component={Page_Speakers} />
         <Route path="/members" component={Page_Members} />
         <Route path="/partners" component={Page_Partners} />
-        <Route path="/partners/:clid" component={Page_Partner} />
+        <Route path="/partner/:clid" component={Page_Partner} />
       </div>
     );
     

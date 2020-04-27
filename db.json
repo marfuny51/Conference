@@ -2,39 +2,133 @@
     "partners": [
       {
         "id": 1,
-        "name": "ELAM System"
+        "name": "ELAM System",
+        "country": "Germany"
       },
       {
         "id": 2,
-        "name": "MediaCorporation"
+        "name": "MediaCorporation",
+        "country": "USA"
       },
       {
         "id": 3,
-        "name": "Sistem knowledges"
+        "name": "Sistem knowledges",
+        "country": "Belarus"
       },
       {
         "id": 4,
-        "name": "Sasha&Co"
+        "name": "Sasha&Co",
+        "country": "Belarus"
       },
       {
         "id": 5,
-        "name": "OBKresult"
+        "name": "OBKresult",
+        "country": "Belarus"
       },
       {
         "id": 6,
-        "name": "RealGoodCompany"
+        "name": "RealGoodCompany",
+        "country": "Russia"
       },
       {
         "id": 7,
-        "name": "DataBaseGroup"
+        "name": "DataBaseGroup",
+        "country": "Britain"
       },
       {
         "id": 8,
-        "name": "CleanMinds"
+        "name": "CleanMinds",
+        "country": "Italy"
       },
       {
         "id": 9,
-        "name": "GogleCom"
+        "name": "GogleCom",
+        "country": "Belarus"
+      },
+      {
+        "id": 10,
+        "name": "Arister",
+        "country": "Spain"
+      },
+      {
+        "id": 11,
+        "name": "PortLand Tehnologies",
+        "country": "USA"
+      },
+      {
+        "id": 12,
+        "name": "Gamburger&Cola",
+        "country": "Russia"
+      },
+      {
+        "id": 13,
+        "name": "Ilusha&Company",
+        "country": "Belarus"
+      },
+      {
+        "id": 14,
+        "name": "YhoooGooo",
+        "country": "USA"
+      },
+      {
+        "id": 15,
+        "name": "Novyi vzglyd na IT",
+        "country": "Belarus"
+      },
+      {
+        "id": 16,
+        "name": "Alpha Limited",
+        "country": "Germany"
+      },
+      {
+        "id": 17,
+        "name": "OtkatKontora",
+        "country": "Russia"
+      },
+      {
+        "id": 18,
+        "name": "Odopod",
+        "country": "Italy"
+      },
+      {
+        "id": 19,
+        "name": "Bonehook",
+        "country": "Italy"
+      },
+      {
+        "id": 20,
+        "name": "Big Spaceship",
+        "country": "Germany"
+      },
+      {
+        "id": 21,
+        "name": "Razorfish",
+        "country": "Belarus"
+      },
+      {
+        "id": 22,
+        "name": "Wikreate",
+        "country": "USA"
+      },
+      {
+        "id": 23,
+        "name": "Lean Mean Fighting Machine",
+        "country": "Belarus"
+      },
+      {
+        "id": 24,
+        "name": "High Heels & Bananas",
+        "country": "Russia"
+      },
+      {
+        "id": 25,
+        "name": "Blammo Worldwide",
+        "country": "India"
+      },
+      {
+        "id": 26,
+        "name": "The Chopping Block",
+        "country": "Turkey"
       }
     ]
   }

@@ -1,3 +1,10 @@
 .Partner {
+    color: #00D970;
+    font-family: 'Muli', sans-serif;
+    margin: 5vw;
+}
+
+.Name {
     color: white;
+    font-size: 2vw;
 }

@@ -47,6 +47,10 @@ class Partners extends React.PureComponent {
     this.props.dispatch( infoThunkAC(this.props.dispatch) );
   }
 
+  click = (EO) => {
+    console.log('Click');
+  }
+
   render() {
 
     if ( this.props.info.status<=1 )
@@ -61,7 +65,7 @@ class Partners extends React.PureComponent {
         <input type='button' className='Reset' value='Reset' onClick={this.reset}/>
         <div> 
           {this.props.info.data.map(a=> 
-          <p key={a.id}><NavLink to={"/partner/"+a.id} className="NavLink">{a.name}</NavLink></p>)
+          <p key={a.id}><NavLink to={"/partner/"+a.id} className="NavLink" onClick={this.click}>{a.name}</NavLink></p>)
           }
         </div>
       </div>
