@@ -24,7 +24,7 @@ class Topics extends React.PureComponent {
     className:'TableTopic',
   }
 
-  topicsArray;EHide
+  topicsArray;
   
   componentDidMount = () => {
     this.loadData();
