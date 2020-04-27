@@ -35,9 +35,10 @@ function infoReducer(state=initState,action) {
     }
 
     case INFO_SORT: {
-      let newState={...state};
-      newState.status = 3;
-      newState.data = action.info.sort(function(a, b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);});
+      let newState={
+        status:3,
+        data:action.info.sort(function(a, b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);})
+      };
       return newState;
     }
     
