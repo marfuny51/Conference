@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import { infoThunkAC, infoThunkAC2 } from "../redux/fetchThunk";
 
-import './Page_Partners.css';
+import './Partners.css';
 
-class InfoList extends React.PureComponent {
+class Partners extends React.PureComponent {
 
   static propTypes = {
     info: PropTypes.object.isRequired,
@@ -56,11 +57,11 @@ class InfoList extends React.PureComponent {
     
     return (
       <div className='Partner'>
-        <span className='Sort'>Sort information </span><input type='checkbox' className='Checkbox' checked= {this.state.sort} onClick={this.sort} /><br/>
+        <span className='Sort'>Sort information </span><input type='checkbox' className='Checkbox' checked= {this.state.sort} onChange={this.sort} /><br/>
         <input type='button' className='Reset' value='Reset' onClick={this.reset}/>
         <div> 
           {this.props.info.data.map(a=> 
-          <p key={a.id}>{a.name}</p>)
+          <p key={a.id}><NavLink to={"/partner/"+a.name} className="NavLink">{a.name}</NavLink></p>)
           }
         </div>
       </div>
@@ -76,4 +77,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(InfoList);
+export default connect(mapStateToProps)(Partners);

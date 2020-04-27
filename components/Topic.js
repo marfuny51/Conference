@@ -48,7 +48,7 @@ class Topic extends React.PureComponent {
     let readMore = <input type="button" value="Read more..." className={this.state.classNameRead} onClick={this.moreRead}/>;
     return (
       <tr key={this.props.topic.id}>
-        <td className='LinkTd'><NavLink to={"/topic/"+this.props.topic.id} className='NavLink'>{this.props.topic.title}</NavLink></td>
+        <td className='LinkTd'>{this.props.topic.title}</td>
         <td>{this.props.topic.mainWords}</td>
         <td>{this.props.topic.author}</td>
         <td>{info}{readMore}</td>

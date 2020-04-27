@@ -32,7 +32,7 @@ class Member extends React.PureComponent {
     
     return (
       <tr key={this.props.member.id}>
-        <td><NavLink to={"/topic/"+this.props.member.name} className='NavLink'>{this.props.member.name}</NavLink></td>
+        <td>{this.props.member.name}</td>
         <td>{this.props.member.phone}</td>
         <td>{this.props.member.email}</td>
         <td>{this.props.member.job}</td>

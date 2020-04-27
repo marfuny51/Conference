@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import {voteEvents} from './events';
 
 import './Speaker.css';
@@ -32,7 +31,7 @@ class Speaker extends React.PureComponent {
 
     return (
     <tr>
-        <td><NavLink to={"/speaker/"+this.props.speaker.id} className='NavLink'>{this.props.speaker.name}</NavLink></td>
+        <td>{this.props.speaker.name}</td>
         <td>{this.props.speaker.phone}</td>
         <td>{this.props.speaker.position}</td>
         <td>{this.props.speaker.topic}</td>

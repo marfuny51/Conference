@@ -4,11 +4,8 @@ import { Route } from 'react-router-dom';
 
 import Page_Main from './Page_Main';
 import Page_Topics from './Page_Topics';
-import Page_Topic from './Page_Topic';
 import Page_Speakers from './Page_Speakers';
-import Page_Speaker from './Page_Speaker';
 import Page_Members from './Page_Members';
-import Page_Member from './Page_Member';
 import Page_Partners from './Page_Partners';
 
 class PagesRouter extends React.Component {
