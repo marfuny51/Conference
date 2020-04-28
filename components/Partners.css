@@ -9,11 +9,13 @@
 .Partner {
     text-align: center;
     color: #00D970;
+    margin: 2vw;
 }
 
 .Sort {
     font-size: 1.3vw;
-    color: white;
+    font-weight: bold;
+    color: #a2eca3;
     letter-spacing: 0.1vw;
 }
 
@@ -22,17 +24,10 @@
     height: 1.2vw;
 }
 
-.Reset {
-    font-family: 'Muli', sans-serif;
-    font-size: 1vw;
-    height: 2vw;
-    background-color: #a2eca3;
-    color: black;
-    border-radius: 0.5vw;
-    border:0.2vw solid #77b45b;
-    margin: 1vw;
-}
-
 .NavLink {
     color: white;
+}
+
+.PartnerList {
+    margin: 2vw;
 }

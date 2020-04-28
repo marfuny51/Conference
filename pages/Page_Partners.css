@@ -6,29 +6,3 @@
     letter-spacing: 0.2vw;
 }
 
-.Partner {
-    text-align: center;
-    color: #00D970;
-}
-
-.Sort {
-    font-size: 1.3vw;
-    color: white;
-    letter-spacing: 0.1vw;
-}
-
-.Checkbox {
-    width: 1.2vw;
-    height: 1.2vw;
-}
-
-.Reset {
-    font-family: 'Muli', sans-serif;
-    font-size: 1vw;
-    height: 2vw;
-    background-color: #a2eca3;
-    color: black;
-    border-radius: 0.5vw;
-    border:0.2vw solid #77b45b;
-    margin: 1vw;
-}

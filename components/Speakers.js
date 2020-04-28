@@ -260,6 +260,12 @@ class Speakers extends React.PureComponent {
     return (
       <div className='Table'>
         <table className={this.state.className}>
+        <colgroup>
+        <col className="cols1"/>
+        <col span="2" className="cols2"/>
+        <col className="cols3"/>
+        <col span="2" className="cols4"/>
+        </colgroup>
         <thead className='TableHead'>
               <tr>
                   <th>Name</th>

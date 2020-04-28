@@ -15,7 +15,6 @@ class Partners extends React.PureComponent {
 
   state = {
     sort: false,
-    line:'',
   }
             
   componentDidMount() {
@@ -33,20 +32,6 @@ class Partners extends React.PureComponent {
     }
   }
 
-  lineSearch = (EO) => {
-    this.setState({line: EO.target.value.toString()}, this.search);
-    //this.props.dispatch( infoThunkAC3(this.props.dispatch, this.state.line) );
-  }
-
-  search = () => {
-    this.props.info.data = this.props.info.data.filter(partner => partner.name.indexOf(this.state.line)!=-1)
-  }
-
-  reset = () => {
-    this.setState({sort: false, line: ''});
-    this.props.dispatch( infoThunkAC(this.props.dispatch) );
-  }
-
   click = (EO) => {
     console.log('Click');
   }
@@ -62,8 +47,7 @@ class Partners extends React.PureComponent {
     return (
       <div className='Partner'>
         <span className='Sort'>Sort information </span><input type='checkbox' className='Checkbox' checked= {this.state.sort} onChange={this.sort} /><br/>
-        <input type='button' className='Reset' value='Reset' onClick={this.reset}/>
-        <div> 
+        <div className='PartnerList'> 
           {this.props.info.data.map(a=> 
           <p key={a.id}><NavLink to={"/partner/"+a.id} className="NavLink" onClick={this.click}>{a.name}</NavLink></p>)
           }

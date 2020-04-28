@@ -15,7 +15,7 @@ class PartnerInfo extends React.PureComponent {
 
   render() {
     return (
-      <h1 className='Partner'>
+      <h1 className='PartnerShow'>
         <span>Partner: </span> <span className='Name'>&laquo;{this.props.partner.name}&raquo;</span><br/>
         <span>Country: </span> <span className='Name'>{this.props.partner.country}</span>
       </h1>

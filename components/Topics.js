@@ -10,10 +10,10 @@ import './Topic.css';
 
 class Topics extends React.PureComponent {
 
-  /*constructor(props) {
+  constructor(props) {
     super(props);
-    this.mounted = false;
-  }*/
+    //this.mounted = false;
+  }
 
   state = {
     dataReady: false,

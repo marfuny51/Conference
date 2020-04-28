@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа MobileCompany 1`] = `
+<tr>
+  <td
+    className="LinkTd"
+  >
+    How to be happy?
+  </td>
+  <td>
+    Happiness
+  </td>
+  <td>
+    Ivan Ivanov
+  </td>
+  <td>
+    <div
+      className="ReadDiv"
+    >
+      Do not worry, be happy
+      <br />
+      <input
+        className="Hide"
+        onClick={[Function]}
+        type="button"
+        value="Hide"
+      />
+    </div>
+    <input
+      className="Read"
+      onClick={[Function]}
+      type="button"
+      value="Read more..."
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа MobileCompany 2`] = `
+<tr>
+  <td
+    className="LinkTd"
+  >
+    How to be happy?
+  </td>
+  <td>
+    Happiness
+  </td>
+  <td>
+    Ivan Ivanov
+  </td>
+  <td>
+    <div
+      className="ReadDivAnim1"
+    >
+      Do not worry, be happy
+      <br />
+      <input
+        className="Hide"
+        onClick={[Function]}
+        type="button"
+        value="Hide"
+      />
+    </div>
+    <input
+      className="ReadNone"
+      onClick={[Function]}
+      type="button"
+      value="Read more..."
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа MobileCompany 3`] = `
+<tr>
+  <td
+    className="LinkTd"
+  >
+    How to be happy?
+  </td>
+  <td>
+    Happiness
+  </td>
+  <td>
+    Ivan Ivanov
+  </td>
+  <td>
+    <div
+      className="ReadDivAnim2"
+    >
+      Do not worry, be happy
+      <br />
+      <input
+        className="Hide"
+        onClick={[Function]}
+        type="button"
+        value="Hide"
+      />
+    </div>
+    <input
+      className="Read"
+      onClick={[Function]}
+      type="button"
+      value="Read more..."
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа MobileCompany 4`] = `
+<tr>
+  <td
+    className="LinkTd"
+  >
+    How to be happy?
+  </td>
+  <td>
+    Happiness
+  </td>
+  <td>
+    Ivan Ivanov
+  </td>
+  <td>
+    <div
+      className="ReadDivAnim2"
+    >
+      Do not worry, be happy
+      <br />
+      <input
+        className="Hide"
+        onClick={[Function]}
+        type="button"
+        value="Hide"
+      />
+    </div>
+    <input
+      className="Read"
+      onClick={[Function]}
+      type="button"
+      value="Read more..."
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа MobileCompany 5`] = `
+<tr>
+  <td
+    className="LinkTd"
+  >
+    How to be happy?
+  </td>
+  <td>
+    Happiness
+  </td>
+  <td>
+    Ivan Ivanov
+  </td>
+  <td>
+    <div
+      className="ReadDivAnim2"
+    >
+      Do not worry, be happy
+      <br />
+      <input
+        className="Hide"
+        onClick={[Function]}
+        type="button"
+        value="Hide"
+      />
+    </div>
+    <input
+      className="Read"
+      onClick={[Function]}
+      type="button"
+      value="Read more..."
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;

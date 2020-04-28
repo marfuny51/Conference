@@ -113,7 +113,7 @@
 
 .AddMember {
     width: 48vw;
-    height: 14vw;
+    height: 15vw;
     position: absolute;
     top: 35%;
     left: 26%;
@@ -144,4 +144,15 @@
 
 .Valide {
     color: red;
+}
+
+.SelectSpan {
+    font-family: 'Muli', sans-serif;
+    font-size: 1.1vw;
+    color: #a2eca3;
+}
+
+.Select {
+    width: 2.2vw;
+    height: 1.5vw;
 }

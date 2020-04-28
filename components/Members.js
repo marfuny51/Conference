@@ -21,6 +21,7 @@ class Members extends React.PureComponent {
     editCode: null,
     mode: null, //6 - view, 7 - edit, 8- add
     className: 'TableMember',
+    optionValue: 1,
   }
 
   membersArray;
@@ -250,13 +251,36 @@ class Members extends React.PureComponent {
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  select = (EO) => {
+    if(EO.target.value === '1') {
+      this.setState({optionValue:1});
+    }
+    if(EO.target.value === '2') {
+      this.setState({optionValue:2});
+    }
+    if(EO.target.value === '3') {
+      this.setState({optionValue:3});
+    }
+  }
   
   render() {
     if ( !this.state.dataReady )
       return <div className = 'LoadData'>загрузка данных...</div>;
-
+    
     let members = [...this.state.members];
-    let members2 = [...this.state.members];
+
+    if (this.state.optionValue===1) {
+      members = members.slice(0, 5);
+    }
+
+    if (this.state.optionValue===2) {
+      members = members.slice(5, 10);
+    }
+
+    if (this.state.optionValue===3) {
+      members = members.slice(10, 20);
+    }
 
     var membersCode=members.map( member =>
       <Member key={member.id} 
@@ -264,7 +288,7 @@ class Members extends React.PureComponent {
       member={member}  />
     );
 
-    var editCode = members2.find( member => member.id === this.state.editCode); 
+    var editCode = members.find( member => member.id === this.state.editCode); 
 
     return (
       <div className='Table'>
@@ -283,6 +307,12 @@ class Members extends React.PureComponent {
           {membersCode}
           </tbody>
         </table>
+        <span className='SelectSpan'>Перейти на страницу: </span>
+        <select name='Pages' onChange={this.select} className='Select'>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+        </select><br/><br/>
         <input type="button" value="Add a new member" className='Add' onClick = {this.addMember} disabled = {(this.state.mode===8)?true:false}/>
         {
         (this.state.mode===8)&&

@@ -7,6 +7,7 @@
     width: 70vw;
     height: 10vh;
     margin: 6vh auto 2vh auto;
+    table-layout: fixed;
 }
 
 .TableSpeakerAdd {
@@ -15,6 +16,7 @@
     height: 10vh;
     margin: 6vh auto 2vh auto;
     opacity:0.3;
+    table-layout: fixed;
 }
 
 .TableHead {
@@ -146,3 +148,18 @@
     color: red;
 }
 
+.cols1 {
+    width: 13vw;
+}
+
+.cols2 {
+    width: 12vw;
+}
+
+.cols3 {
+    width: 22vw;
+}
+
+.cols4 {
+    width: 6vw;
+}
