@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Member 1`] = `
+<tr>
+  <td>
+    Anna Beresovnik
+  </td>
+  <td>
+    +375294587965
+  </td>
+  <td>
+    berezovnik@gmail.com
+  </td>
+  <td>
+    Student
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Member 2`] = `
+<tr>
+  <td>
+    Anna Beresovnik
+  </td>
+  <td>
+    +375294587965
+  </td>
+  <td>
+    berezovnik@gmail.com
+  </td>
+  <td>
+    Student
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Member 3`] = `
+<tr>
+  <td>
+    Anna Beresovnik
+  </td>
+  <td>
+    +375294587965
+  </td>
+  <td>
+    berezovnik@gmail.com
+  </td>
+  <td>
+    Student
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Member 4`] = `
+<tr>
+  <td>
+    Anna Beresovnik
+  </td>
+  <td>
+    +375294587965
+  </td>
+  <td>
+    berezovnik@gmail.com
+  </td>
+  <td>
+    Student
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Member 5`] = `
+<tr>
+  <td>
+    Anna Beresovnik
+  </td>
+  <td>
+    +375294587965
+  </td>
+  <td>
+    berezovnik@gmail.com
+  </td>
+  <td>
+    Student
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;

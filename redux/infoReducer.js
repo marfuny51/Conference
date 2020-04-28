@@ -39,6 +39,7 @@ function infoReducer(state=initState,action) {
         status:3,
         data:action.info.sort(function(a, b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);})
       };
+      console.log(action.info);
       return newState;
     }
     

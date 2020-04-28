@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`работа MobileCompany 1`] = `
+exports[`работа Topic 1`] = `
 <tr>
   <td
     className="LinkTd"
@@ -54,7 +54,7 @@ exports[`работа MobileCompany 1`] = `
 </tr>
 `;
 
-exports[`работа MobileCompany 2`] = `
+exports[`работа Topic 2`] = `
 <tr>
   <td
     className="LinkTd"
@@ -108,7 +108,7 @@ exports[`работа MobileCompany 2`] = `
 </tr>
 `;
 
-exports[`работа MobileCompany 3`] = `
+exports[`работа Topic 3`] = `
 <tr>
   <td
     className="LinkTd"
@@ -162,7 +162,7 @@ exports[`работа MobileCompany 3`] = `
 </tr>
 `;
 
-exports[`работа MobileCompany 4`] = `
+exports[`работа Topic 4`] = `
 <tr>
   <td
     className="LinkTd"
@@ -216,7 +216,7 @@ exports[`работа MobileCompany 4`] = `
 </tr>
 `;
 
-exports[`работа MobileCompany 5`] = `
+exports[`работа Topic 5`] = `
 <tr>
   <td
     className="LinkTd"

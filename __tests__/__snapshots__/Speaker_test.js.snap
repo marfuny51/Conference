@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Speaker 1`] = `
+<tr>
+  <td>
+    Inokentii Zhivago
+  </td>
+  <td>
+    +375442569847
+  </td>
+  <td>
+    Business analyst
+  </td>
+  <td>
+    Business analysis in software development
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Speaker 2`] = `
+<tr>
+  <td>
+    Inokentii Zhivago
+  </td>
+  <td>
+    +375442569847
+  </td>
+  <td>
+    Business analyst
+  </td>
+  <td>
+    Business analysis in software development
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Speaker 3`] = `
+<tr>
+  <td>
+    Inokentii Zhivago
+  </td>
+  <td>
+    +375442569847
+  </td>
+  <td>
+    Business analyst
+  </td>
+  <td>
+    Business analysis in software development
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Speaker 4`] = `
+<tr>
+  <td>
+    Inokentii Zhivago
+  </td>
+  <td>
+    +375442569847
+  </td>
+  <td>
+    Business analyst
+  </td>
+  <td>
+    Business analysis in software development
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Speaker 5`] = `
+<tr>
+  <td>
+    Inokentii Zhivago
+  </td>
+  <td>
+    +375442569847
+  </td>
+  <td>
+    Business analyst
+  </td>
+  <td>
+    Business analysis in software development
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+  </td>
+  <td>
+    <input
+      className="Read"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;

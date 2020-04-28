@@ -10,10 +10,10 @@ import './Member.css';
 
 class Members extends React.PureComponent {
 
-  /*constructor(props) {
+  constructor(props) {
     super(props);
     this.mounted = false;
-  }*/
+  }
 
   state = {
     dataReady: false,
@@ -28,7 +28,7 @@ class Members extends React.PureComponent {
 
   componentDidMount = () => {
     this.loadData();
-    //this.mounted = true;
+    this.mounted = true;
     voteEvents.addListener('ESaveMember',this.memberSave);
     voteEvents.addListener('ECancelMember',this.memberCancel);
     voteEvents.addListener('EDeleteMember',this.delete);
@@ -37,7 +37,7 @@ class Members extends React.PureComponent {
   };
 
   componentWillUnmount = () => {
-    //this.mounted = false;
+    this.mounted = false;
     voteEvents.removeListener('ESaveMember',this.memberSave);
     voteEvents.removeListener('ECancelMember',this.memberCancel);
     voteEvents.removeListener('EDeleteMember',this.delete);
@@ -73,9 +73,9 @@ class Members extends React.PureComponent {
             }
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.members);
-            
+            if (this.mounted) {
               this.setState({ dataReady:true, members:this.speakersArray.members, className:'TableMember'});
-            
+            }
         })
         .catch( error => {
             this.fetchError(error.message);

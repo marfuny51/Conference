@@ -1,37 +1,19 @@
 import React from 'react';
-import Topic from '../components/Topic';
+import Speaker from '../components/Speaker';
 import renderer from 'react-test-renderer';
 
-test('работа Topic', () => {
+test('работа Speaker', () => {
 
-    let topic={id:3, title:'How to be happy?', mainWords: 'Happiness', author: 'Ivan Ivanov', info:'Do not worry, be happy'};
+    let speaker={id:460,name:"Inokentii Zhivago",phone:"+375442569847",position:"Business analyst",topic:"Business analysis in software development"};
     // создаём тестовую версию компонента
     const component = renderer.create(
-      <Topic 
-      topic={topic}
+      <Speaker 
+      speaker={speaker}
     />
     );
   
     // получаем снэпшот (HTML-снимок) компонента для сверки, что вёрстка не испортилась
     let componentTree=component.toJSON();
-    expect(componentTree).toMatchSnapshot();
-
-    // найдём в вёрстке компонента кнопку 'Read more...'
-    const buttonRead = component.root.findByProps(  {value:'Read more...'}); 
-    // и "нажмём" на неё
-    buttonRead.props.onClick();
-  
-    // получаем уже изменённый снэпшот
-    componentTree=component.toJSON();
-    expect(componentTree).toMatchSnapshot();
-
-    // найдём в вёрстке компонента кнопку 'Hide'
-    const buttonHide = component.root.findByProps(  {value:'Hide'}); 
-    // и "нажмём" на неё
-    buttonHide.props.onClick();
-  
-    // получаем уже изменённый снэпшот
-    componentTree=component.toJSON();
     expect(componentTree).toMatchSnapshot();
   
     // найдём в вёрстке компонента кнопку 'Edit'
@@ -53,7 +35,18 @@ test('работа Topic', () => {
     componentTree=component.toJSON();
     expect(componentTree).toMatchSnapshot();
     
-      
+    buttonEdit.props.onClick(); 
+    
+    // получаем уже изменённый снэпшот
+    componentTree=component.toJSON();
+    expect(componentTree).toMatchSnapshot();
+    
+    buttonDelete.props.onClick();
+
+    // получаем уже изменённый снэпшот
+    componentTree=component.toJSON();
+    expect(componentTree).toMatchSnapshot();
+
     /*
     // можно эмулировать события, передавая в качестве объекта события то что нам нужно:
     wrapper.find('select').simulate('change', {
