@@ -9,8 +9,7 @@
     "dev": "cross-env NODE_ENV=development .//node_modules//.bin//webpack-dev-server --progress --colors --history-api-fallback",
     "buildprod": "cross-env NODE_ENV=production .//node_modules//.bin//webpack --progress",
     "browse": ".\\node_modules\\.bin\\lite-server",
-    "test": "jest",
-    "jsonstart": "json-server --watch db.json"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -42,9 +41,6 @@
     "bower": "^1.8.8",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
-    "grunt": "^1.1.0",
-    "grunt-cli": "^1.3.2",
-    "grunt-sass": "^3.1.0",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^22.4.4",
     "json-server": "^0.16.1",
@@ -58,7 +54,6 @@
     "sinon": "^9.0.2"
   },
   "jest": {
-    "testURL": "http://localhost",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
