@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Topics /> component should render 1`] = `
+<div
+  className="Table"
+>
+  <table
+    className="TableTopic"
+  >
+    <colgroup>
+      <col
+        className="col1"
+      />
+      <col
+        className="col2"
+        span="2"
+      />
+      <col
+        className="col3"
+      />
+      <col
+        className="col4"
+        span="2"
+      />
+    </colgroup>
+    <thead
+      className="TableHead"
+    >
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Key words
+        </th>
+        <th>
+          Author
+        </th>
+        <th>
+          Info
+        </th>
+        <th>
+          Edit
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="TableBody"
+    >
+      <Topic
+        key="3"
+        mode={null}
+        readId={null}
+        topic={
+          Object {
+            "author": "Ivan Ivanov",
+            "id": 3,
+            "info": "Do not worry, be happy",
+            "mainWords": "Happiness",
+            "title": "How to be happy?",
+          }
+        }
+      />
+      <Topic
+        key="4"
+        mode={null}
+        readId={null}
+        topic={
+          Object {
+            "author": "Pavel Pashkin",
+            "id": 4,
+            "info": "Anyone can become a programmer",
+            "mainWords": "IT-industry",
+            "title": "How to be a programmer?",
+          }
+        }
+      />
+    </tbody>
+  </table>
+  <input
+    className="Add"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+    value="Add a new topic"
+  />
+</div>
+`;

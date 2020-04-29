@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Members /> component should render 1`] = `
+<div
+  className="Table"
+>
+  <table
+    className="TableMember"
+  >
+    <thead
+      className="TableHead"
+    >
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Phone
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Job
+        </th>
+        <th>
+          Edit
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="TableBody"
+    >
+      <Member
+        key="4449"
+        member={
+          Object {
+            "email": "sasha@gmail.com",
+            "id": 4449,
+            "job": "QA engineer",
+            "name": "Aleksandr Pugach",
+            "phone": "+375297598465",
+          }
+        }
+        mode={null}
+      />
+      <Member
+        key="6522"
+        member={
+          Object {
+            "email": "katya@bk.ru",
+            "id": 6522,
+            "job": "HR specialist",
+            "name": "Ekaterina Ivanova",
+            "phone": "+375442569874",
+          }
+        }
+        mode={null}
+      />
+    </tbody>
+  </table>
+  <span
+    className="SelectSpan"
+  >
+    Перейти на страницу: 
+  </span>
+  <select
+    className="Select"
+    name="Pages"
+    onChange={[Function]}
+  >
+    <option
+      value="1"
+    >
+      1
+    </option>
+    <option
+      value="2"
+    >
+      2
+    </option>
+    <option
+      value="3"
+    >
+      3
+    </option>
+  </select>
+  <br />
+  <br />
+  <input
+    className="Add"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+    value="Add a new member"
+  />
+</div>
+`;
