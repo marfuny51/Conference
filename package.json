@@ -6,9 +6,8 @@
   "main": "App.js",
   "scripts": {
     "builddev": "concurrently --kill-others \"npm run dev\" \"json-server --watch db.json\"",
-    "buildprod": "concurrently --kill-others \"npm run prod\" \"json-server --watch db.json\"",
     "dev": "cross-env NODE_ENV=development .//node_modules//.bin//webpack-dev-server --progress --colors --history-api-fallback",
-    "prod": "cross-env NODE_ENV=production .//node_modules//.bin//webpack --progress",
+    "buildprod": "cross-env NODE_ENV=production .//node_modules//.bin//webpack --progress & json-server --watch db.json",
     "browse": ".\\node_modules\\.bin\\lite-server",
     "test": "jest"
   },
