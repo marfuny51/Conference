@@ -5,25 +5,29 @@
 .TableSpeaker {
     border-collapse: collapse;
     width: 70vw;
-    height: 10vh;
-    margin: 6vh auto 2vh auto;
+    height: 10vw;
+    margin: 3vw auto 1vw auto;
     table-layout: fixed;
 }
 
 .TableSpeakerAdd {
     border-collapse: collapse;
     width: 70vw;
-    height: 10vh;
-    margin: 6vh auto 2vh auto;
+    height: 10vw;
+    margin: 3vw auto 1vw auto;
     opacity:0.3;
     table-layout: fixed;
 }
 
-.TableHead {
+.TableSpeaker .TableHead {
     color: #00D970;
 }
 
-.TableHead th {
+.TableSpeakerAdd .TableHead {
+    color: #00D970;
+}
+
+.TableSpeaker .TableHead th {
     font-family: 'Muli', sans-serif;
     font-size: 1.2vw;
     background-color: #127a16;
@@ -33,24 +37,51 @@
     border: 0vw;
 }
 
-.TableBody tr {
-    height: 6vh;
+.TableSpeakerAdd .TableHead th {
+    font-family: 'Muli', sans-serif;
+    font-size: 1.2vw;
+    background-color: #127a16;
+    color: white;
+    letter-spacing: 0.1vw;
+    padding: 1vw;
+    border: 0vw;
+}
+
+.TableSpeaker .TableBody tr {
+    height: 3.5vw;
     background-color: #d3f1d4;
     border-bottom: 0.15vw solid #127a16;
 }
 
-.TableBody tr:hover {
+.TableSpeakerAdd .TableBody tr {
+    height: 3.5vw;
+    background-color: #d3f1d4;
+    border-bottom: 0.15vw solid #127a16;
+}
+
+.TableSpeaker .TableBody tr:hover {
     background-color: #f5f5f5;
 }
 
-.TableBody tr td {
+.TableSpeakerAdd .TableBody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.TableSpeaker .TableBody tr td {
     font-family: 'Muli', sans-serif;
     font-size: 1.1vw;
     border: 0vw;
     padding: 0.5vw;
 }
 
-.Read {
+.TableSpeakerAdd .TableBody tr td {
+    font-family: 'Muli', sans-serif;
+    font-size: 1.1vw;
+    border: 0vw;
+    padding: 0.5vw;
+}
+
+.TableSpeaker .Read {
     font-family: 'Muli', sans-serif;
     font-size: 1vw;
     height: 2vw;
@@ -60,14 +91,31 @@
     border:0.2vw solid #77b45b;
 }
 
-.Read:hover {
+.TableSpeakerAdd .Read {
+    font-family: 'Muli', sans-serif;
+    font-size: 1vw;
+    height: 2vw;
+    background-color: #a2eca3;
+    color: black;
+    border-radius: 0.5vw;
+    border:0.2vw solid #77b45b;
+}
+
+.TableSpeaker .Read:hover {
     font-weight: bold;
     transform: scale(1.03);
     border:0.2vw solid #456835;
     cursor: pointer;
 }
 
-.Read2 {
+.TableSpeakerAdd .Read:hover {
+    font-weight: bold;
+    transform: scale(1.03);
+    border:0.2vw solid #456835;
+    cursor: pointer;
+}
+
+.AddSpeaker .Read2 {
     font-family: 'Muli', sans-serif;
     font-size: 1vw;
     height: 2vw;
@@ -78,7 +126,7 @@
     margin-right: 1.2vw;
 }
 
-.Read2:hover {
+.AddSpeaker .Read2:hover {
     font-weight: bold;
     transform: scale(1.03);
     border:0.2vw solid #456835;
@@ -124,21 +172,22 @@
     border-radius: 0.5vw;
 }
 
-.Title {
+.AddSpeaker .Title {
     font-family: 'Muli', sans-serif;
+    font-size: 1.2vw;
     font-weight: bold;
     letter-spacing:0.1vw;
     padding-top: 1vw;
 }
 
-.Input {
+.AddSpeaker .Input {
     font-family: 'Muli', sans-serif;
     font-size: 1.1vw;
     text-align: left;
-    padding: 3.8vh 1vw 3vh 4vw;
+    padding: 1.5vw 1vw 1vw 4vw;
 }
 
-.Input input{
+.AddSpeaker .Input input{
     font-size: 1vw;
     width: 9vw;
     height: 1.2vw;
@@ -148,18 +197,65 @@
     color: red;
 }
 
-.cols1 {
+.TableSpeaker .cols1 {
     width: 13vw;
 }
 
-.cols2 {
+.TableSpeakerAdd .cols1 {
+    width: 13vw;
+}
+
+.TableSpeaker .cols2 {
     width: 12vw;
 }
 
-.cols3 {
+.TableSpeakerAdd .cols2 {
+    width: 12vw;
+}
+
+.TableSpeaker .cols3 {
     width: 22vw;
 }
 
-.cols4 {
+.TableSpeakerAdd .cols3 {
+    width: 22vw;
+}
+
+.TableSpeaker .cols4 {
     width: 6vw;
+}
+
+.TableSpeakerAdd .cols4 {
+    width: 6vw;
+}
+
+@media all and (max-width:1280px) {
+.AddSpeaker {height: 15vw;}
+}
+
+@media all and (max-width:1000px) {
+.TableSpeaker .TableBody tr td {padding: 0vw 0.5vw 0vw 0.5vw;}
+.TableSpeakerAdd .TableBody tr td {padding: 0vw 0.5vw 0vw 0.5vw;}
+}
+
+@media all and (max-width:900px) {
+.AddSpeaker .Input {padding: 1vw 1vw 0.2vw 4vw;}
+}
+
+@media all and (max-width:700px) {
+.TableSpeaker .cols4 {width: 8vw;}
+.TableSpeakerAdd .cols4 {width: 8vw;}
+.AddSpeaker {height: 16vw;}
+}
+
+@media all and (max-width:600px) {
+.AddSpeaker {height: 17.5vw;}
+.AddSpeaker .Input {padding: 1vw 1vw 0vw 4vw;}
+.AddSpeaker .Read2 {padding-top: 0vw;}
+}
+
+@media all and (max-width:500px) {
+.AddSpeaker {height: 21vw;}
+.AddSpeaker .Input {padding: 1vw 1vw 0vw 4vw;}
+.AddSpeaker .Read2 {padding-top: 0vw;}
 }

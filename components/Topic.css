@@ -5,25 +5,29 @@
 .TableTopic {
     border-collapse: collapse;
     width: 70vw;
-    height: 10vh;
-    margin: 6vh auto 2vh auto;
+    height: 10vw;
+    margin: 3vw auto 1vw auto;
     table-layout: fixed;
 }
 
 .TableTopicAdd {
     border-collapse: collapse;
     width: 70vw;
-    height: 10vh;
-    margin: 6vh auto 2vh auto;
+    height: 10vw;
+    margin: 3vw auto 1vw auto;
     opacity:0.3;
     table-layout: fixed;
 }
 
-.TableHead {
+.TableTopic .TableHead {
     color: #00D970;
 }
 
-.TableHead th {
+.TableTopicAdd .TableHead {
+    color: #00D970;
+}
+
+.TableTopic .TableHead th {
     font-family: 'Muli', sans-serif;
     font-size: 1.2vw;
     background-color: #127a16;
@@ -33,17 +37,37 @@
     border: 0vw;
 }
 
-.TableBody tr {
+.TableTopicAdd .TableHead th {
+    font-family: 'Muli', sans-serif;
+    font-size: 1.2vw;
+    background-color: #127a16;
+    color: white;
+    letter-spacing: 0.1vw;
+    padding: 1vw;
+    border: 0vw;
+}
+
+.TableTopic .TableBody tr {
     height: 5vw;
     background-color: #d3f1d4;
     border-bottom: 0.15vw solid #127a16;
 }
 
-.TableBody tr:hover {
+.TableTopicAdd .TableBody tr {
+    height: 5vw;
+    background-color: #d3f1d4;
+    border-bottom: 0.15vw solid #127a16;
+}
+
+.TableTopic .TableBody tr:hover {
     background-color: #f5f5f5;
 }
 
-.TableBody tr td {
+.TableTopicAdd .TableBody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.TableTopic .TableBody tr td {
     width: 13vw;
     font-family: 'Muli', sans-serif;
     font-size: 1.1vw;
@@ -51,7 +75,15 @@
     padding: 0.5vw;
 }
 
-.Read {
+.TableTopicAdd .TableBody tr td {
+    width: 13vw;
+    font-family: 'Muli', sans-serif;
+    font-size: 1.1vw;
+    border: 0vw;
+    padding: 0.5vw;
+}
+
+.TableTopic .Read {
     font-family: 'Muli', sans-serif;
     font-size: 1vw;
     height: 2vw;
@@ -61,18 +93,39 @@
     border:0.2vw solid #77b45b;
 }
 
-.Read:hover {
+.TableTopicAdd .Read {
+    font-family: 'Muli', sans-serif;
+    font-size: 1vw;
+    height: 2vw;
+    background-color: #a2eca3;
+    color: black;
+    border-radius: 0.5vw;
+    border:0.2vw solid #77b45b;
+}
+
+.TableTopic .Read:hover {
     font-weight: bold;
     border:0.2vw solid #456835;
     cursor: pointer;
     transform: scale(1.03);
 }
 
-.ReadNone {
+.TableTopicAdd .Read:hover {
+    font-weight: bold;
+    border:0.2vw solid #456835;
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.TableTopic .ReadNone {
     display: none;
 }
 
-.Read2 {
+.TableTopicAdd .ReadNone {
+    display: none;
+}
+
+.AddTopic .Read2 {
     font-family: 'Muli', sans-serif;
     font-size: 1vw;
     height: 2vw;
@@ -83,7 +136,7 @@
     margin-right: 1.2vw;
 }
 
-.Read2:hover {
+.AddTopic .Read2:hover {
     border:0.2vw solid #456835;
     cursor: pointer;
     transform: scale(1.03);
@@ -128,21 +181,21 @@
     border-radius: 0.5vw;
 }
 
-.Title {
+.AddTopic .Title {
     font-family: 'Muli', sans-serif;
     font-weight: bold;
     letter-spacing:0.1vw;
     padding-top: 1vw;
 }
 
-.Input {
+.AddTopic .Input {
     font-family: 'Muli', sans-serif;
     font-size: 1.1vw;
     text-align: left;
-    padding: 3.8vh 1vw 3vh 4vw;
+    padding: 1.5vw 1vw 1.5vw 4vw;
 }
 
-.Input input{
+.AddTopic .Input input{
     font-size: 1vw;
     width: 9vw;
     height: 1.2vw;
@@ -213,18 +266,68 @@
     font-weight: bold;
 }
 
-.col1 {
+.TableTopic .col1 {
     width: 15vw;
 }
 
-.col2 {
+.TableTopicAdd .col1 {
+    width: 15vw;
+}
+
+.TableTopic .col2 {
     width: 10vw;
 }
 
-.col3 {
+.TableTopicAdd .col2 {
+    width: 10vw;
+}
+
+.TableTopic .col3 {
     width: 27vw;
 }
 
-.col4 {
+.TableTopicAdd .col3 {
+    width: 27vw;
+}
+
+.TableTopic .col4 {
     width: 6vw;
+}
+
+.TableTopicAdd .col4 {
+    width: 6vw;
+}
+
+@media all and (max-width:1520px) {
+.ReadDivAnim1 {height: 10.5vw;}
+}
+
+@media all and (max-width:1400px) {
+.AddTopic {height: 25vw;}
+}
+
+@media all and (max-width:1060px) {
+.AddTopic .Input {padding: 1vw 1vw 1vw 4vw;}
+}
+
+@media all and (max-width:850px) {
+.TableTopic .TableBody tr td {padding: 0vw 0.5vw 0vw 0.5vw;}
+.TableTopic .col4 {width: 8vw;}
+.TableTopicAdd .TableBody tr td {padding: 0vw 0.5vw 0vw 0.5vw;}
+.TableTopicAdd .col4 {width: 8vw;}
+.ReadDivAnim1 {height: 11vw;}
+.AddTopic .Input {padding: 1vw 1vw 0.5vw 4vw;}
+.AddTopic {height: 26vw;}
+}
+
+@media all and (max-width:700px) {
+.Input textarea {height: 8vw;}
+.AddTopic .Input {padding: 1vw 1vw 0vw 4vw;}
+.AddTopic {height: 28vw;}
+.AddTopic .Title {font-size: 3vw;}
+}
+
+@media all and (max-width:500px) {
+.AddTopic .Read2 {padding-top: 0vw;}
+.AddTopic {height: 30vw;}
 }

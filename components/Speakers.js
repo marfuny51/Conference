@@ -73,7 +73,7 @@ class Speakers extends React.PureComponent {
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.speakers);
             
-              this.setState({ dataReady:true, speakers:this.speakersArray.speakers, className:'TableTopic'});
+              this.setState({ dataReady:true, speakers:this.speakersArray.speakers, className:'TableSpeaker'});
             
         })
         .catch( error => {
@@ -228,15 +228,15 @@ class Speakers extends React.PureComponent {
 
   speakerCancel = () => {
     let speakers = [...this.state.speakers];
-    this.setState({mode:0, speakers: speakers, className:'TableTopic'});
+    this.setState({mode:0, speakers: speakers, className:'TableSpeaker'});
   }
 
   addSpeaker = (EO) => {
-    this.setState({mode:2, className:'TableTopicAdd'})
+    this.setState({mode:2, className:'TableSpeakerAdd'})
   }
   
   editSpeaker = (id) => {
-    this.setState( {editCode:id, mode:1, className:'TableTopicAdd'})
+    this.setState( {editCode:id, mode:1, className:'TableSpeakerAdd'})
   }
 
   getRandomInt(min, max) {
