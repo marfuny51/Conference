@@ -204,10 +204,20 @@
 .Select {
     width: 2vw;
     height: 2vw;
+    font-size: 1vw;
+}
+
+@media all and (max-width:1400px) {
+.Select{width: 2.5vw;}
+}
+
+@media all and (max-width:1100px) {
+.Select{width: 3vw;}
 }
 
 @media all and (max-width:900px) {
 .AddMember .Input {padding: 1.5vw 1vw 0vw 4vw;}
+.Select{width: 4vw;}
 }
 
 @media all and (max-width:750px) {
