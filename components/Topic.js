@@ -51,8 +51,8 @@ class Topic extends React.PureComponent {
         <td>{this.props.topic.mainWords}</td>
         <td>{this.props.topic.author}</td>
         <td>{info}{readMore}</td>
-        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===4)?true:false} onClick={this.editTopic}/></td>
-        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===4)?true:false} onClick={this.deleteTopic}/></td>
+        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===3)||(this.props.mode===4)?true:false} onClick={this.editTopic}/></td>
+        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===3)||(this.props.mode===4)?true:false} onClick={this.deleteTopic}/></td>
       </tr>
     );
 
