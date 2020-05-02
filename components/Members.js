@@ -160,8 +160,10 @@ class Members extends React.PureComponent {
       })
       .then( (data) => {
         console.log(data);
-        this.loadData();
-        this.setState({mode:6});
+        if(this.mounted) {
+          this.loadData();
+          this.setState({mode:6});
+        }
       })
       .catch( error => {
           this.fetchError(error.message);
@@ -227,7 +229,9 @@ class Members extends React.PureComponent {
         })
         .then( (data) => {
           console.log(data);
-          this.loadData();
+          if(this.mounted) {
+            this.loadData();
+          }
         })
         .catch( error => {
             this.fetchError(error.message);

@@ -10,10 +10,10 @@ import './Speaker.css';
 
 class Speakers extends React.PureComponent {
   
-  /*constructor(props) {
+  constructor(props) {
     super(props);
     this.mounted = false;
-  }*/
+  }
 
   state = {
     dataReady: false,
@@ -27,7 +27,7 @@ class Speakers extends React.PureComponent {
 
   componentDidMount = () => {
     this.loadData();
-    //this.mounted = true;
+    this.mounted = true;
     voteEvents.addListener('ESave',this.speakerSave);
     voteEvents.addListener('ECancel',this.speakerCancel);
     voteEvents.addListener('EDelete',this.delete);
@@ -36,7 +36,7 @@ class Speakers extends React.PureComponent {
   };
 
   componentWillUnmount = () => {
-    //this.mounted = false;
+    this.mounted = false;
     voteEvents.removeListener('ESave',this.speakerSave);
     voteEvents.removeListener('ECancel',this.speakerCancel);
     voteEvents.removeListener('EDelete',this.delete);
@@ -72,9 +72,9 @@ class Speakers extends React.PureComponent {
             }
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.speakers);
-            
+            if(this.mounted) {
               this.setState({ dataReady:true, speakers:this.speakersArray.speakers, className:'TableSpeaker'});
-            
+            }
         })
         .catch( error => {
             this.fetchError(error.message);
@@ -155,8 +155,10 @@ class Speakers extends React.PureComponent {
       })
       .then( (data) => {
         console.log(data);
-        this.loadData();
-        this.setState({mode:0});        
+        if(this.mounted) {
+          this.loadData();
+          this.setState({mode:0}); 
+        }       
       })
       .catch( error => {
           this.fetchError(error.message);
@@ -218,7 +220,9 @@ class Speakers extends React.PureComponent {
         })
         .then( (data) => {
             console.log(data);
-            this.loadData();
+            if(this.mounted) {
+              this.loadData(); 
+            }   
         })
         .catch( error => {
             this.fetchError(error.message);

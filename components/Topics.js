@@ -12,7 +12,7 @@ class Topics extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    //this.mounted = false;
+    this.mounted = false;
   }
 
   state = {
@@ -28,7 +28,7 @@ class Topics extends React.PureComponent {
   
   componentDidMount = () => {
     this.loadData();
-    //this.mounted = true;
+    this.mounted = true;
     voteEvents.addListener('ESaveTopic',this.topicSave);
     voteEvents.addListener('ECancelTopic',this.topicCancel);
     voteEvents.addListener('EDeleteTopic',this.delete);
@@ -39,7 +39,7 @@ class Topics extends React.PureComponent {
   };
 
   componentWillUnmount = () => {
-    //this.mounted = false;
+    this.mounted = false;
     voteEvents.removeListener('ESaveTopic',this.topicSave);
     voteEvents.removeListener('ECancelTopic',this.topicCancel);
     voteEvents.removeListener('EDeleteTopic',this.delete);
@@ -77,9 +77,9 @@ class Topics extends React.PureComponent {
             }
             else this.speakersArray = JSON.parse(data.result);
             console.log(this.speakersArray.topics);
-            
+            if(this.mounted) {
               this.setState({ dataReady:true, topics:this.speakersArray.topics, className:'TableTopic'});
-            
+            }
         })
         .catch( error => {
             this.fetchError(error.message);
@@ -164,8 +164,10 @@ class Topics extends React.PureComponent {
       })
       .then( (data) => {
         console.log(data);
-        this.loadData();
-        this.setState({mode:5});
+        if(this.mounted) {
+          this.loadData();
+          this.setState({mode:5});
+        }
       })
       .catch( error => {
           this.fetchError(error.message);
@@ -231,7 +233,9 @@ class Topics extends React.PureComponent {
         })
         .then( (data) => {
           console.log(data);
-          this.loadData();
+          if(this.mounted) {
+            this.loadData();
+          }
         })
         .catch( error => {
             this.fetchError(error.message);
