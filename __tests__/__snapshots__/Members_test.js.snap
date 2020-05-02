@@ -1,101 +1,173 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Members /> component should render 1`] = `
-<div
-  className="Table"
->
-  <table
-    className="TableMember"
+<Members>
+  <div
+    className="Table"
   >
-    <thead
-      className="TableHead"
+    <table
+      className="TableMember"
     >
-      <tr>
-        <th>
-          Name
-        </th>
-        <th>
-          Phone
-        </th>
-        <th>
-          Email
-        </th>
-        <th>
-          Job
-        </th>
-        <th>
-          Edit
-        </th>
-        <th>
-          Delete
-        </th>
-      </tr>
-    </thead>
-    <tbody
-      className="TableBody"
-    >
-      <Member
-        key="4449"
-        member={
-          Object {
-            "email": "sasha@gmail.com",
-            "id": 4449,
-            "job": "QA engineer",
-            "name": "Aleksandr Pugach",
-            "phone": "+375297598465",
+      <thead
+        className="TableHead"
+      >
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Phone
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            Job
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Delete
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="TableBody"
+      >
+        <Member
+          key="4449"
+          member={
+            Object {
+              "email": "sasha@gmail.com",
+              "id": 4449,
+              "job": "QA engineer",
+              "name": "Aleksandr Pugach",
+              "phone": "+375297598465",
+            }
           }
-        }
-        mode={null}
-      />
-      <Member
-        key="6522"
-        member={
-          Object {
-            "email": "katya@bk.ru",
-            "id": 6522,
-            "job": "HR specialist",
-            "name": "Ekaterina Ivanova",
-            "phone": "+375442569874",
+          mode={null}
+        >
+          <tr
+            key="4449"
+          >
+            <td>
+              Aleksandr Pugach
+            </td>
+            <td>
+              +375297598465
+            </td>
+            <td>
+              sasha@gmail.com
+            </td>
+            <td>
+              QA engineer
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Edit"
+              />
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Delete"
+              />
+            </td>
+          </tr>
+        </Member>
+        <Member
+          key="6522"
+          member={
+            Object {
+              "email": "katya@bk.ru",
+              "id": 6522,
+              "job": "HR specialist",
+              "name": "Ekaterina Ivanova",
+              "phone": "+375442569874",
+            }
           }
-        }
-        mode={null}
-      />
-    </tbody>
-  </table>
-  <span
-    className="SelectSpan"
-  >
-    Перейти на страницу: 
-  </span>
-  <select
-    className="Select"
-    name="Pages"
-    onChange={[Function]}
-  >
-    <option
-      value="1"
+          mode={null}
+        >
+          <tr
+            key="6522"
+          >
+            <td>
+              Ekaterina Ivanova
+            </td>
+            <td>
+              +375442569874
+            </td>
+            <td>
+              katya@bk.ru
+            </td>
+            <td>
+              HR specialist
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Edit"
+              />
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Delete"
+              />
+            </td>
+          </tr>
+        </Member>
+      </tbody>
+    </table>
+    <span
+      className="SelectSpan"
     >
-      1
-    </option>
-    <option
-      value="2"
+      Перейти на страницу: 
+    </span>
+    <select
+      className="Select"
+      name="Pages"
+      onChange={[Function]}
     >
-      2
-    </option>
-    <option
-      value="3"
-    >
-      3
-    </option>
-  </select>
-  <br />
-  <br />
-  <input
-    className="Add"
-    disabled={false}
-    onClick={[Function]}
-    type="button"
-    value="Add a new member"
-  />
-</div>
+      <option
+        value="1"
+      >
+        1
+      </option>
+      <option
+        value="2"
+      >
+        2
+      </option>
+      <option
+        value="3"
+      >
+        3
+      </option>
+    </select>
+    <br />
+    <br />
+    <input
+      className="Add"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Add a new member"
+    />
+  </div>
+</Members>
 `;

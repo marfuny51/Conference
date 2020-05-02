@@ -35,8 +35,8 @@ class Member extends React.PureComponent {
         <td>{this.props.member.phone}</td>
         <td>{this.props.member.email}</td>
         <td>{this.props.member.job}</td>
-        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===8)?true:false} onClick={this.editMember}/></td>
-        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===8)?true:false} onClick={this.deleteMember}/></td>
+        <td><input type="button" value="Edit" className='Read' disabled = {(this.props.mode===8)||(this.props.mode===7)?true:false} onClick={this.editMember}/></td>
+        <td><input type="button" value="Delete" className='Read' disabled = {(this.props.mode===8)||(this.props.mode===7)?true:false} onClick={this.deleteMember}/></td>
       </tr>
     );
 

@@ -7,13 +7,13 @@ import Members from '../components/Members'
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const component = shallow(<Members />);
+const component = mount(<Members />);
 const members = [{id:4449,name:"Aleksandr Pugach",phone:"+375297598465",email:"sasha@gmail.com",job:"QA engineer"},{id:6522,name:"Ekaterina Ivanova",phone:"+375442569874",email:"katya@bk.ru",job:"HR specialist"}];
 describe('<Members /> component', () => {
     it('should render', () => {
         component.setState({ dataReady: true, members: members});
         members.map( member =>
-            shallow(<Member key={member.id} 
+            render(<Member key={member.id} 
                 member={member}/>)
           );
         const tree = toJson(component);

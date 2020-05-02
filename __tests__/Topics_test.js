@@ -7,7 +7,7 @@ import Topics from '../components/Topics'
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const component = shallow(<Topics />);
+const component = mount(<Topics />);
 const topics = [{id:3, title:'How to be happy?', mainWords: 'Happiness', author: 'Ivan Ivanov', info:'Do not worry, be happy'}, {id:4, title:'How to be a programmer?', mainWords: 'IT-industry', author: 'Pavel Pashkin', info:'Anyone can become a programmer'}]
 describe('<Topics /> component', () => {
     it('should render', () => {

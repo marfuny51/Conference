@@ -1,89 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Speakers /> component should render 1`] = `
-<div
-  className="Table"
->
-  <table
-    className="TableSpeaker"
+<Speakers>
+  <div
+    className="Table"
   >
-    <colgroup>
-      <col
-        className="cols1"
-      />
-      <col
-        className="cols2"
-        span="2"
-      />
-      <col
-        className="cols3"
-      />
-      <col
-        className="cols4"
-        span="2"
-      />
-    </colgroup>
-    <thead
-      className="TableHead"
+    <table
+      className="TableSpeaker"
     >
-      <tr>
-        <th>
-          Name
-        </th>
-        <th>
-          Phone
-        </th>
-        <th>
-          Position
-        </th>
-        <th>
-          Topic
-        </th>
-        <th>
-          Edit
-        </th>
-        <th>
-          Delete
-        </th>
-      </tr>
-    </thead>
-    <tbody
-      className="TableBody"
-    >
-      <Speaker
-        key="460"
-        mode={null}
-        speaker={
-          Object {
-            "id": 460,
-            "name": "Inokentii Zhivago",
-            "phone": "+375442569847",
-            "position": "Business analyst",
-            "topic": "Business analysis in software development",
+      <colgroup>
+        <col
+          className="cols1"
+        />
+        <col
+          className="cols2"
+          span="2"
+        />
+        <col
+          className="cols3"
+        />
+        <col
+          className="cols4"
+          span="2"
+        />
+      </colgroup>
+      <thead
+        className="TableHead"
+      >
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Phone
+          </th>
+          <th>
+            Position
+          </th>
+          <th>
+            Topic
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Delete
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="TableBody"
+      >
+        <Speaker
+          key="460"
+          mode={null}
+          speaker={
+            Object {
+              "id": 460,
+              "name": "Inokentii Zhivago",
+              "phone": "+375442569847",
+              "position": "Business analyst",
+              "topic": "Business analysis in software development",
+            }
           }
-        }
-      />
-      <Speaker
-        key="1348"
-        mode={null}
-        speaker={
-          Object {
-            "id": 1348,
-            "name": "Veronika Dokuro",
-            "phone": "+375332548965",
-            "position": "Q&A Engineer",
-            "topic": "Software testing",
+        >
+          <tr>
+            <td>
+              Inokentii Zhivago
+            </td>
+            <td>
+              +375442569847
+            </td>
+            <td>
+              Business analyst
+            </td>
+            <td>
+              Business analysis in software development
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Edit"
+              />
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Delete"
+              />
+            </td>
+          </tr>
+        </Speaker>
+        <Speaker
+          key="1348"
+          mode={null}
+          speaker={
+            Object {
+              "id": 1348,
+              "name": "Veronika Dokuro",
+              "phone": "+375332548965",
+              "position": "Q&A Engineer",
+              "topic": "Software testing",
+            }
           }
-        }
-      />
-    </tbody>
-  </table>
-  <input
-    className="Add"
-    disabled={false}
-    onClick={[Function]}
-    type="button"
-    value="Add a new speaker"
-  />
-</div>
+        >
+          <tr>
+            <td>
+              Veronika Dokuro
+            </td>
+            <td>
+              +375332548965
+            </td>
+            <td>
+              Q&A Engineer
+            </td>
+            <td>
+              Software testing
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Edit"
+              />
+            </td>
+            <td>
+              <input
+                className="Read"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                value="Delete"
+              />
+            </td>
+          </tr>
+        </Speaker>
+      </tbody>
+    </table>
+    <input
+      className="Add"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Add a new speaker"
+    />
+  </div>
+</Speakers>
 `;
